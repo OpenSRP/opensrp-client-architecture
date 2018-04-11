@@ -2,15 +2,12 @@ package org.test.taskscheduler.view;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import org.test.taskscheduler.R;
-import org.test.taskscheduler.adapter.TaskRecyclerViewAdapter;
-import org.test.taskscheduler.presenter.TaskContractPresenter;
+import org.test.taskscheduler.presenter.TaskListPresenter;
 import org.test.taskscheduler.presenter.contract.TaskListPresenterContract;
 
 /**
@@ -29,29 +26,20 @@ public class TaskListActivity extends AppCompatActivity implements TaskListPrese
      */
     private boolean mTwoPane;
 
-    private TaskContractPresenter taskListPresenter;
+    private TaskListPresenter taskListPresenter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
 
-        taskListPresenter = new TaskContractPresenter(this);
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        RecyclerView recyclerView = findViewById(R.id.task_list);
+        recyclerView = findViewById(R.id.task_list);
         assert recyclerView != null;
         if (findViewById(R.id.task_detail_container) != null) {
             // The detail container view will be present only in the
@@ -60,10 +48,11 @@ public class TaskListActivity extends AppCompatActivity implements TaskListPrese
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+        taskListPresenter = new TaskListPresenter(this, getSupportFragmentManager(), recyclerView, mTwoPane);
 
-        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter.getAllTasks(), mTwoPane, getSupportFragmentManager()));
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(taskListPresenter.getListener(null));
 
     }
-
 
 }

@@ -1,9 +1,5 @@
 package org.test.taskscheduler.adapter;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +8,7 @@ import android.widget.TextView;
 
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.model.Task;
-import org.test.taskscheduler.view.TaskDetailActivity;
-import org.test.taskscheduler.view.TaskDetailFragment;
+import org.test.taskscheduler.presenter.TaskListPresenter;
 
 import java.util.List;
 
@@ -25,13 +20,11 @@ public class TaskRecyclerViewAdapter
         extends RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder> {
 
     private final List<Task> mValues;
-    private boolean mTwoPane;
-    private FragmentManager fragmentManager;
+    private TaskListPresenter taskListPresenter;
 
-    public TaskRecyclerViewAdapter(List<Task> items, boolean mTwoPane, FragmentManager fragmentManager) {
+    public TaskRecyclerViewAdapter(List<Task> items, TaskListPresenter taskListPresenter) {
         mValues = items;
-        this.mTwoPane = mTwoPane;
-        this.fragmentManager = fragmentManager;
+        this.taskListPresenter = taskListPresenter;
     }
 
     @Override
@@ -50,21 +43,7 @@ public class TaskRecyclerViewAdapter
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mTwoPane) {
-                    Bundle arguments = new Bundle();
-                    arguments.putLong(TaskDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
-                    TaskDetailFragment fragment = new TaskDetailFragment();
-                    fragment.setArguments(arguments);
-                    fragmentManager.beginTransaction()
-                            .replace(R.id.task_detail_container, fragment)
-                            .commit();
-                } else {
-                    Context context = v.getContext();
-                    Intent intent = new Intent(context, TaskDetailActivity.class);
-                    intent.putExtra(TaskDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
-
-                    context.startActivity(intent);
-                }
+                taskListPresenter.getListener(holder.mItem.getId());
             }
         });
     }
