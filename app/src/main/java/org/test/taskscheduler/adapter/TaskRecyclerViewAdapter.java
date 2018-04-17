@@ -4,12 +4,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.presenter.TaskListPresenter;
 
+import java.text.DateFormat;
 import java.util.List;
 
 /**
@@ -37,15 +39,17 @@ public class TaskRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getTitle());
-        holder.mContentView.setText(mValues.get(position).getDetails());
+        if (holder.titleView.getVisibility() == View.GONE) {
+            holder.detailsView.setText(mValues.get(position).getTitle() + "\n" + mValues.get(position).getDetails());
+        } else {
+            holder.titleView.setText(mValues.get(position).getTitle());
+            holder.detailsView.setText(mValues.get(position).getDetails());
+        }
+        holder.durationView.setText(mValues.get(position).getDuration() + " hours");
+        holder.startView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(mValues.get(position).getStart()));
+        holder.completeView.setChecked(mValues.get(position).isCompleted());
 
-        holder.mView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                taskListPresenter.getListener(holder.mItem.getId());
-            }
-        });
+        holder.mView.setOnClickListener(taskListPresenter.getListener(holder.mItem.getId()));
     }
 
     @Override
@@ -55,20 +59,26 @@ public class TaskRecyclerViewAdapter
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+        public final TextView titleView;
+        public final TextView detailsView;
+        public final TextView durationView;
+        public final TextView startView;
+        public final CheckBox completeView;
         public Task mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView =  view.findViewById(R.id.id);
-            mContentView =  view.findViewById(R.id.content);
+            titleView = view.findViewById(R.id.task_title);
+            detailsView = view.findViewById(R.id.task_detail);
+            durationView = view.findViewById(R.id.task_duration);
+            startView = view.findViewById(R.id.task_start);
+            completeView = view.findViewById(R.id.task_complete);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
+            return super.toString() + " '" + detailsView.getText() + "'";
         }
     }
 }

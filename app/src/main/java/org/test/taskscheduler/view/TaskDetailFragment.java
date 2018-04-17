@@ -13,8 +13,8 @@ import android.widget.Toast;
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.presenter.TaskDetailPresenter;
-import org.test.taskscheduler.view.contract.TaskDetailsView;
 import org.test.taskscheduler.repository.TaskRepository;
+import org.test.taskscheduler.view.contract.TaskDetailsView;
 
 import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED;
 
@@ -74,9 +74,13 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
 
     @Override
     public void returnToListActivity(boolean modified) {
-        Intent intent = new Intent();
-        intent.putExtra(TASKS_MODIFIED, modified);
-        getActivity().setResult(Activity.RESULT_OK, intent);
-        //getActivity().finish();
+        if (getActivity() instanceof TaskDetailActivity) {
+            Intent intent = new Intent();
+            intent.putExtra(TASKS_MODIFIED, modified);
+            getActivity().setResult(Activity.RESULT_OK, intent);
+            getActivity().finish();
+        } else {
+            getFragmentManager().beginTransaction().remove(this).commit();
+        }
     }
 }
