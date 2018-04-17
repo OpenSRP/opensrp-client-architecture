@@ -1,40 +1,40 @@
 package org.test.taskscheduler.presenter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.adapter.TaskRecyclerViewAdapter;
 import org.test.taskscheduler.dao.TaskDao;
 import org.test.taskscheduler.model.Task;
-import org.test.taskscheduler.presenter.contract.TaskListPresenterContract;
 import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.TaskDetailActivity;
 import org.test.taskscheduler.view.TaskDetailFragment;
+import org.test.taskscheduler.view.contract.TaskListView;
 
 import java.util.List;
+
+import static android.app.Activity.RESULT_OK;
+import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED;
+import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED_RESULT_CODE;
 
 /**
  * Created by samuelgithengi on 4/11/18.
  */
 
-public class TaskListPresenter implements TaskListPresenterContract {
+public class TaskListPresenter {
 
     private TaskDao taskDao;
-    private boolean mTwoPane;
-
-    private FragmentManager fragmentManager;
+    private TaskListView taskListView;
 
 
-    public TaskListPresenter(Context context, FragmentManager fragmentManager, RecyclerView recyclerView, boolean mTwoPane) {
+    public TaskListPresenter(Context context, TaskListView taskListView) {
         taskDao = TaskRepository.getInstance(context).getTaskDao();
-        this.fragmentManager = fragmentManager;
-        this.mTwoPane = mTwoPane;
-        recyclerView.setAdapter(new TaskRecyclerViewAdapter(getAllTasks(), this));
+        this.taskListView = taskListView;
+        taskListView.getRecyclerView().setAdapter(new TaskRecyclerViewAdapter(this));
     }
 
     public List<Task> getAllTasks() {
@@ -47,18 +47,18 @@ public class TaskListPresenter implements TaskListPresenterContract {
             arguments.putLong(TaskDetailFragment.ARG_ITEM_ID, id);
         TaskDetailFragment fragment = new TaskDetailFragment();
         fragment.setArguments(arguments);
-        fragmentManager.beginTransaction()
+        taskListView.getSupportFragmentManager().beginTransaction()
                 .replace(R.id.task_detail_container, fragment)
                 .commit();
     }
 
     public void startDetailsActivity(Long id, View view) {
-        Context context = view.getContext();
+        Activity context = (Activity) view.getContext();
         Intent intent = new Intent(context, TaskDetailActivity.class);
         if (id != null)
             intent.putExtra(TaskDetailFragment.ARG_ITEM_ID, id);
 
-        context.startActivity(intent);
+        context.startActivityForResult(intent, TASKS_MODIFIED_RESULT_CODE);
     }
 
     public View.OnClickListener getListener(final Long id) {
@@ -67,12 +67,19 @@ public class TaskListPresenter implements TaskListPresenterContract {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mTwoPane)
+                if (taskListView.isTwoPanels())
                     startDetailsFragment(id);
                 else
                     startDetailsActivity(id, v);
             }
         };
+    }
+
+    public void processActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == TASKS_MODIFIED_RESULT_CODE) {
+            if (data.getBooleanExtra(TASKS_MODIFIED, false))
+                taskListView.refreshTasks();
+        }
     }
 
 

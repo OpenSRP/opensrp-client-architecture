@@ -18,7 +18,7 @@ public class Task {
     private String title;
     private String details;
     private Date start;
-    public float duration;
+    public int duration;
     public boolean completed;
 
     public long getId() {
@@ -53,11 +53,11 @@ public class Task {
         this.start = start;
     }
 
-    public float getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(float duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

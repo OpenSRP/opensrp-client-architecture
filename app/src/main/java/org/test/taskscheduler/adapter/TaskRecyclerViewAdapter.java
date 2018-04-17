@@ -22,8 +22,8 @@ public class TaskRecyclerViewAdapter
     private final List<Task> mValues;
     private TaskListPresenter taskListPresenter;
 
-    public TaskRecyclerViewAdapter(List<Task> items, TaskListPresenter taskListPresenter) {
-        mValues = items;
+    public TaskRecyclerViewAdapter(TaskListPresenter taskListPresenter) {
+        mValues = taskListPresenter.getAllTasks();
         this.taskListPresenter = taskListPresenter;
     }
 
@@ -37,8 +37,8 @@ public class TaskRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getId() + "");
-        holder.mContentView.setText(mValues.get(position).getTitle());
+        holder.mIdView.setText(mValues.get(position).getTitle());
+        holder.mContentView.setText(mValues.get(position).getDetails());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +62,8 @@ public class TaskRecyclerViewAdapter
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView =  view.findViewById(R.id.id);
+            mContentView =  view.findViewById(R.id.content);
         }
 
         @Override
