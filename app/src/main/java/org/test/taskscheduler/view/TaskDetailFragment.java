@@ -8,6 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import org.test.taskscheduler.R;
@@ -15,6 +19,9 @@ import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.presenter.TaskDetailPresenter;
 import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.contract.TaskDetailsView;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED;
 
@@ -35,6 +42,16 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
     private Task mItem;
 
     private TaskDetailPresenter taskDetailPresenter;
+
+    private DatePicker taskStart;
+
+    private NumberPicker taskDuration;
+
+    private EditText taskTitle;
+
+    private EditText taskDetails;
+
+    private CheckBox taskCompleted;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -64,8 +81,45 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.task_detail, container, false);
-        return taskDetailPresenter.displayTask(rootView, mItem);
+        View view = inflater.inflate(R.layout.task_detail, container, false);
+        taskTitle = view.findViewById(R.id.task_title);
+        taskDetails = view.findViewById(R.id.task_detail);
+        taskStart = view.findViewById(R.id.task_start);
+        taskCompleted = view.findViewById(R.id.task_complete);
+        taskDuration = view.findViewById(R.id.task_duration);
+        taskStart.setMinDate(System.currentTimeMillis());
+
+        taskDuration.setMinValue(1);
+        taskDuration.setMaxValue(24);
+        if (mItem != null) {
+            taskTitle.setText(mItem.getTitle());
+            taskDetails.setText(mItem.getDetails());
+            taskDuration.setValue(mItem.getDuration());
+            taskCompleted.setChecked(mItem.isCompleted());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(mItem.getStart());
+            taskStart.updateDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+        }
+        view.findViewById(R.id.task_save).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                taskDetailPresenter.onSaveTaskClicked(mItem);
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public Task populateTaskDetails(Task task) {
+        if (task == null)
+            task = new Task();
+        task.setTitle(taskTitle.getText().toString());
+        task.setDetails(taskDetails.getText().toString());
+        Calendar cal = new GregorianCalendar(taskStart.getYear(), taskStart.getMonth(), taskStart.getDayOfMonth());
+        task.setStart(cal.getTime());
+        task.setDuration(taskDuration.getValue());
+        task.setCompleted(taskCompleted.isChecked());
+        return task;
     }
 
     public void displayNotification(String message) {
