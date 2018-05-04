@@ -1,16 +1,20 @@
 package org.test.taskscheduler.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.adapter.TaskRecyclerViewAdapter;
 import org.test.taskscheduler.presenter.TaskListPresenter;
 import org.test.taskscheduler.view.contract.TaskListView;
+
+import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED_RESULT_CODE;
 
 /**
  * An activity representing a list of Tasks. This activity
@@ -31,6 +35,9 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
 
     private TaskListPresenter taskListPresenter;
 
+
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +57,34 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
         }
         taskListPresenter = new TaskListPresenter(this, this);
 
+        recyclerView = findViewById(R.id.task_list);
+        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(taskListPresenter.getListener(null));
 
+    }
+
+    @Override
+    public void startDetailsFragment(Long id) {
+        Bundle arguments = new Bundle();
+        if (id != null)
+            arguments.putLong(TaskDetailFragment.ARG_ITEM_ID, id);
+        TaskDetailFragment fragment = new TaskDetailFragment();
+        fragment.setArguments(arguments);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.task_detail_container, fragment)
+                .commit();
+    }
+
+    @Override
+    public void startDetailsActivity(Long id, View view) {
+        Activity context = (Activity) view.getContext();
+        Intent intent = new Intent(context, TaskDetailActivity.class);
+        if (id != null)
+            intent.putExtra(TaskDetailFragment.ARG_ITEM_ID, id);
+
+        startActivityForResult(intent, TASKS_MODIFIED_RESULT_CODE);
     }
 
     @Override
@@ -62,12 +94,7 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
 
     @Override
     public void refreshTasks() {
-        getRecyclerView().setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
-    }
-
-    @Override
-    public RecyclerView getRecyclerView() {
-        return findViewById(R.id.task_list);
+        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
     }
 
     @Override
