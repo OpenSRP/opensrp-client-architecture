@@ -84,7 +84,7 @@ public class TaskListPresenterTest extends BaseUnitTest {
     }
 
     @Test
-    public void testProcessActivityResultDoesnotRefresh() {
+    public void testProcessActivityResultDoesNotRefresh() {
         taskListPresenter.processActivityResult(TASKS_MODIFIED_RESULT_CODE, RESULT_OK, new Intent());
         verify(listView, never()).refreshTasks();
     }

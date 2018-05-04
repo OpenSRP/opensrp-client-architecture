@@ -35,6 +35,9 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
 
     private TaskListPresenter taskListPresenter;
 
+
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,9 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
             mTwoPane = true;
         }
         taskListPresenter = new TaskListPresenter(this, this);
-        getRecyclerView().setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
+
+        recyclerView = findViewById(R.id.task_list);
+        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(taskListPresenter.getListener(null));
@@ -89,12 +94,7 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
 
     @Override
     public void refreshTasks() {
-        getRecyclerView().setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
-    }
-
-    @Override
-    public RecyclerView getRecyclerView() {
-        return findViewById(R.id.task_list);
+        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
     }
 
     @Override
