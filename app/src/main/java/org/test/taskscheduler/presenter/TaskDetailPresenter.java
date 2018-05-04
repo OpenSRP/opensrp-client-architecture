@@ -15,7 +15,6 @@ public class TaskDetailPresenter {
 
     private TaskDao taskDao;
 
-
     private TaskDetailsView view;
 
     public TaskDetailPresenter(Context context, TaskDetailsView view) {
@@ -23,8 +22,8 @@ public class TaskDetailPresenter {
         this.view = view;
     }
 
-    public void onSaveTaskClicked(Task task){
-        task=view.populateTaskDetails(task);
+    public void onSaveTaskClicked(Task task) {
+        task = view.populateTaskDetails(task);
         saveTask(task);
     }
 
