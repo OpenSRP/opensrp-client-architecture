@@ -81,7 +81,7 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         task.setTitle("Display task");
         when(taskInteractor.getTask(taskId)).thenReturn(task);
         taskDetailPresenter.displayTask(taskId);
-        verify(taskInteractor.getTask(taskId));
+        verify(taskInteractor).getTask(taskId);
         verify(detailsView).setTaskDetails(task);
     }
 
@@ -91,7 +91,7 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         Task task = null;
         when(taskInteractor.getTask(taskId)).thenReturn(task);
         taskDetailPresenter.displayTask(taskId);
-        verify(taskInteractor.getTask(taskId));
+        verify(taskInteractor).getTask(taskId);
         verify(detailsView, never()).setTaskDetails(task);
     }
 
