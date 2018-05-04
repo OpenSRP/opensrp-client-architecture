@@ -13,8 +13,7 @@ import org.mockito.junit.MockitoRule;
 import org.robolectric.RuntimeEnvironment;
 import org.test.taskscheduler.BaseUnitTest;
 import org.test.taskscheduler.R;
-import org.test.taskscheduler.dao.TaskDao;
-import org.test.taskscheduler.repository.TaskRepository;
+import org.test.taskscheduler.interactor.TaskInteractor;
 import org.test.taskscheduler.view.contract.TaskListView;
 
 import static android.app.Activity.RESULT_OK;
@@ -35,25 +34,22 @@ public class TaskListPresenterTest extends BaseUnitTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @Mock
-    private TaskDao taskDao;
-
-    @Mock
     private TaskListView listView;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskInteractor taskInteractor;
 
     private TaskListPresenter taskListPresenter;
 
     @Before
     public void setUp() {
-        taskListPresenter = new TaskListPresenter(taskDao, listView);
+        taskListPresenter = new TaskListPresenter(taskInteractor, listView);
     }
 
     @Test
     public void testGetAllTasks() {
         taskListPresenter.getAllTasks();
-        verify(taskDao).getAll();
+        verify(taskInteractor).getAllTasks();
     }
 
     @Test

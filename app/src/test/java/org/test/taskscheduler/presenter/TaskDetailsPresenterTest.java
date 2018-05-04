@@ -11,9 +11,9 @@ import org.mockito.junit.MockitoRule;
 import org.robolectric.RuntimeEnvironment;
 import org.test.taskscheduler.BaseUnitTest;
 import org.test.taskscheduler.R;
-import org.test.taskscheduler.dao.TaskDao;
+import org.test.taskscheduler.interactor.TaskInteractor;
+import org.test.taskscheduler.interactor.TaskInteractor.type;
 import org.test.taskscheduler.model.Task;
-import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.contract.TaskDetailsView;
 
 import static org.mockito.Mockito.verify;
@@ -30,13 +30,10 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
     public MockitoRule rule = MockitoJUnit.rule();
 
     @Mock
-    private TaskDao taskDao;
-
-    @Mock
     private TaskDetailsView detailsView;
 
     @Mock
-    private TaskRepository taskRepository;
+    private TaskInteractor taskInteractor;
 
     private TaskDetailPresenter taskDetailPresenter;
 
@@ -44,16 +41,18 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
 
     @Before
     public void setUp() {
-        taskDetailPresenter = new TaskDetailPresenter(context, detailsView, taskDao);
+        taskDetailPresenter = new TaskDetailPresenter(context, detailsView, taskInteractor);
+
     }
 
     @Test
     public void testOnSaveTaskClicked() {
         Task task = new Task();
         when(detailsView.populateTaskDetails(task)).thenReturn(task);
+        when(taskInteractor.saveOrUpdateTask(task)).thenReturn(type.SAVED);
         taskDetailPresenter.onSaveTaskClicked(task);
         verify(detailsView).populateTaskDetails(task);
-        verify(taskDao).insert(task);
+        verify(taskInteractor).saveOrUpdateTask(task);
         verify(detailsView).displayNotification(context.getResources().getString(R.string.task_saved));
         verify(detailsView).returnToListActivity(true);
     }
@@ -64,10 +63,11 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         task.setId(12l);
         task.setTitle("MVP Testing");
         when(detailsView.populateTaskDetails(task)).thenReturn(task);
+        when(taskInteractor.saveOrUpdateTask(task)).thenReturn(type.UPDATED);
 
         taskDetailPresenter.onSaveTaskClicked(task);
         verify(detailsView).populateTaskDetails(task);
-        verify(taskDao).update(task);
+        verify(taskInteractor).saveOrUpdateTask(task);
         verify(detailsView).displayNotification(context.getResources().getString(R.string.task_updated));
         verify(detailsView).returnToListActivity(true);
     }

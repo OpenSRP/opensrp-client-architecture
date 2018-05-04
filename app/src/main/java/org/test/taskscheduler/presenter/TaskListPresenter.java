@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import org.test.taskscheduler.dao.TaskDao;
+import org.test.taskscheduler.interactor.TaskInteractor;
 import org.test.taskscheduler.model.Task;
-import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.contract.TaskListView;
 
 import java.util.List;
@@ -21,22 +20,22 @@ import static org.test.taskscheduler.utils.Constants.TASKS_MODIFIED_RESULT_CODE;
 
 public class TaskListPresenter {
 
-    private TaskDao taskDao;
+    private TaskInteractor taskInteractor;
     private TaskListView taskListView;
 
 
     public TaskListPresenter(Context context, TaskListView taskListView) {
-        taskDao = TaskRepository.getInstance(context).getTaskDao();
+        this(new TaskInteractor(context), taskListView);
+    }
+
+    public TaskListPresenter(TaskInteractor taskInteractor, TaskListView taskListView) {
+        this.taskInteractor = taskInteractor;
         this.taskListView = taskListView;
     }
 
-    public TaskListPresenter(TaskDao taskDao, TaskListView taskListView) {
-        this.taskDao = taskDao;
-        this.taskListView = taskListView;
-    }
 
     public List<Task> getAllTasks() {
-        return taskDao.getAll();
+        return taskInteractor.getAllTasks();
     }
 
     public View.OnClickListener getListener(final Long id) {

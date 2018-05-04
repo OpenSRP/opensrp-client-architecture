@@ -3,9 +3,9 @@ package org.test.taskscheduler.presenter;
 import android.content.Context;
 
 import org.test.taskscheduler.R;
-import org.test.taskscheduler.dao.TaskDao;
+import org.test.taskscheduler.interactor.TaskInteractor;
+import org.test.taskscheduler.interactor.TaskInteractor.type;
 import org.test.taskscheduler.model.Task;
-import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.contract.TaskDetailsView;
 
 /**
@@ -14,21 +14,20 @@ import org.test.taskscheduler.view.contract.TaskDetailsView;
 
 public class TaskDetailPresenter {
 
-    private TaskDao taskDao;
+    private TaskInteractor taskInteractor;
 
     private TaskDetailsView view;
 
     private Context context;
 
     public TaskDetailPresenter(Context context, TaskDetailsView view) {
-        this(context, view, TaskRepository.getInstance(context).getTaskDao());
+        this(context, view, new TaskInteractor(context));
     }
 
-    public TaskDetailPresenter(Context context, TaskDetailsView view, TaskDao taskDao) {
+    public TaskDetailPresenter(Context context, TaskDetailsView view, TaskInteractor taskInteractor) {
         this.view = view;
         this.context = context;
-        this.taskDao = taskDao;
-
+        this.taskInteractor = taskInteractor;
     }
 
     public void onSaveTaskClicked(Task task) {
@@ -39,11 +38,10 @@ public class TaskDetailPresenter {
 
     private void saveTask(Task task) {
         String message;
-        if (task.getId() == 0) {
-            taskDao.insert(task);
+        type operation = taskInteractor.saveOrUpdateTask(task);
+        if (operation.equals(type.SAVED)) {
             message = context.getResources().getString(R.string.task_saved);
         } else {
-            taskDao.update(task);
             message = context.getResources().getString(R.string.task_updated);
         }
         view.displayNotification(message);
