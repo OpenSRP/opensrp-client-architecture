@@ -16,6 +16,7 @@ import org.test.taskscheduler.interactor.TaskInteractor.type;
 import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.view.contract.TaskDetailsView;
 
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -72,5 +73,26 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         verify(detailsView).returnToListActivity(true);
     }
 
+    @Test
+    public void testDisplayTask() {
+        long taskId = 20l;
+        Task task = new Task();
+        task.setId(taskId);
+        task.setTitle("Display task");
+        when(taskInteractor.getTask(taskId)).thenReturn(task);
+        taskDetailPresenter.displayTask(taskId);
+        verify(taskInteractor.getTask(taskId));
+        verify(detailsView).setTaskDetails(task);
+    }
+
+    @Test
+    public void testDisplayTaskMissingTask() {
+        long taskId = 20l;
+        Task task = null;
+        when(taskInteractor.getTask(taskId)).thenReturn(task);
+        taskDetailPresenter.displayTask(taskId);
+        verify(taskInteractor.getTask(taskId));
+        verify(detailsView, never()).setTaskDetails(task);
+    }
 
 }

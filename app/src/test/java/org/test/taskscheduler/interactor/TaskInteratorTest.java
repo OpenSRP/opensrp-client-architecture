@@ -54,4 +54,12 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.saveOrUpdateTask(task);
         verify(taskDao).update(task);
     }
+
+
+    @Test
+    public void testGetTask() {
+        long taskId = 23;
+        taskInteractor.getTask(taskId);
+        verify(taskDao).findById(taskId);
+    }
 }
