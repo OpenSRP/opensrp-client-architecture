@@ -2,6 +2,7 @@ package org.test.taskscheduler.presenter;
 
 import android.content.Context;
 
+import org.test.taskscheduler.R;
 import org.test.taskscheduler.dao.TaskDao;
 import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.repository.TaskRepository;
@@ -17,9 +18,17 @@ public class TaskDetailPresenter {
 
     private TaskDetailsView view;
 
+    private Context context;
+
     public TaskDetailPresenter(Context context, TaskDetailsView view) {
-        taskDao = TaskRepository.getInstance(context).getTaskDao();
+        this(context, view, TaskRepository.getInstance(context).getTaskDao());
+    }
+
+    public TaskDetailPresenter(Context context, TaskDetailsView view, TaskDao taskDao) {
         this.view = view;
+        this.context = context;
+        this.taskDao = taskDao;
+
     }
 
     public void onSaveTaskClicked(Task task) {
@@ -28,14 +37,14 @@ public class TaskDetailPresenter {
     }
 
 
-    public void saveTask(Task task) {
+    private void saveTask(Task task) {
         String message;
         if (task.getId() == 0) {
             taskDao.insert(task);
-            message = "Task has been successfully saved";
+            message = context.getResources().getString(R.string.task_saved);
         } else {
             taskDao.update(task);
-            message = "Task has been successfully updated";
+            message = context.getResources().getString(R.string.task_updated);
         }
         view.displayNotification(message);
         view.returnToListActivity(true);

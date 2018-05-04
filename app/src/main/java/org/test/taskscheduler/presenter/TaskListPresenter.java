@@ -30,6 +30,11 @@ public class TaskListPresenter {
         this.taskListView = taskListView;
     }
 
+    public TaskListPresenter(TaskDao taskDao, TaskListView taskListView) {
+        this.taskDao = taskDao;
+        this.taskListView = taskListView;
+    }
+
     public List<Task> getAllTasks() {
         return taskDao.getAll();
     }

@@ -43,6 +43,7 @@ dependencies {
 
     testCompile 'org.robolectric:robolectric:3.8'
     testCompile 'org.robolectric:shadows-multidex:3.8'
+
     // PowerMock
     def powerMockVersion = '1.7.4'
     testCompile "org.powermock:powermock-module-junit4:$powerMockVersion"
