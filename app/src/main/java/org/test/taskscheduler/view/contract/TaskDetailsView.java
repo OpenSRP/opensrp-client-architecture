@@ -11,5 +11,7 @@ public interface TaskDetailsView {
 
     void returnToListActivity(boolean taskModified);
 
-    Task populateTaskDetails(Task task);
+    Task retrieveTaskDetails(Task task);
+
+    void setTaskDetails(Task task);
 }

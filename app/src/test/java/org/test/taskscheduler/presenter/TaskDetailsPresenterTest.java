@@ -48,10 +48,10 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
     @Test
     public void testOnSaveTaskClicked() {
         Task task = new Task();
-        when(detailsView.populateTaskDetails(task)).thenReturn(task);
+        when(detailsView.retrieveTaskDetails(task)).thenReturn(task);
         when(taskInteractor.saveOrUpdateTask(task)).thenReturn(type.SAVED);
         taskDetailPresenter.onSaveTaskClicked(task);
-        verify(detailsView).populateTaskDetails(task);
+        verify(detailsView).retrieveTaskDetails(task);
         verify(taskInteractor).saveOrUpdateTask(task);
         verify(detailsView).displayNotification(context.getResources().getString(R.string.task_saved));
         verify(detailsView).returnToListActivity(true);
@@ -62,11 +62,11 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         Task task = new Task();
         task.setId(12l);
         task.setTitle("MVP Testing");
-        when(detailsView.populateTaskDetails(task)).thenReturn(task);
+        when(detailsView.retrieveTaskDetails(task)).thenReturn(task);
         when(taskInteractor.saveOrUpdateTask(task)).thenReturn(type.UPDATED);
 
         taskDetailPresenter.onSaveTaskClicked(task);
-        verify(detailsView).populateTaskDetails(task);
+        verify(detailsView).retrieveTaskDetails(task);
         verify(taskInteractor).saveOrUpdateTask(task);
         verify(detailsView).displayNotification(context.getResources().getString(R.string.task_updated));
         verify(detailsView).returnToListActivity(true);

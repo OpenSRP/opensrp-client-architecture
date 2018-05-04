@@ -17,7 +17,6 @@ import android.widget.Toast;
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.model.Task;
 import org.test.taskscheduler.presenter.TaskDetailPresenter;
-import org.test.taskscheduler.repository.TaskRepository;
 import org.test.taskscheduler.view.contract.TaskDetailsView;
 
 import java.util.Calendar;
@@ -53,6 +52,8 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
 
     private CheckBox taskCompleted;
 
+    private Toolbar toolbar;
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -64,18 +65,9 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         taskDetailPresenter = new TaskDetailPresenter(getActivity(), this);
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
 
-            long id = getArguments().getLong(ARG_ITEM_ID);
-
-            mItem = TaskRepository.getInstance(getActivity()).getTaskDao().findById(id);
-
-        }
-        Activity activity = this.getActivity();
-        Toolbar toolbar = activity.findViewById(R.id.detail_toolbar);
-        if (toolbar != null) {
-            toolbar.setTitle(mItem == null ? "Add New Task" : mItem.getTitle());
-        }
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbar.setTitle("Add New Task");
     }
 
     @Override
@@ -91,26 +83,23 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
 
         taskDuration.setMinValue(1);
         taskDuration.setMaxValue(24);
-        if (mItem != null) {
-            taskTitle.setText(mItem.getTitle());
-            taskDetails.setText(mItem.getDetails());
-            taskDuration.setValue(mItem.getDuration());
-            taskCompleted.setChecked(mItem.isCompleted());
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(mItem.getStart());
-            taskStart.updateDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
-        }
+
         view.findViewById(R.id.task_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 taskDetailPresenter.onSaveTaskClicked(mItem);
             }
         });
+
+        if (getArguments().containsKey(ARG_ITEM_ID)) {
+            taskDetailPresenter.displayTask(getArguments().getLong(ARG_ITEM_ID));
+        }
+
         return view;
     }
 
     @Override
-    public Task populateTaskDetails(Task task) {
+    public Task retrieveTaskDetails(Task task) {
         if (task == null)
             task = new Task();
         task.setTitle(taskTitle.getText().toString());
@@ -120,6 +109,22 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
         task.setDuration(taskDuration.getValue());
         task.setCompleted(taskCompleted.isChecked());
         return task;
+    }
+
+    @Override
+    public void setTaskDetails(Task task) {
+        mItem = task;
+        if (mItem != null) {
+            taskTitle.setText(mItem.getTitle());
+            taskDetails.setText(mItem.getDetails());
+            taskDuration.setValue(mItem.getDuration());
+            taskCompleted.setChecked(mItem.isCompleted());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(mItem.getStart());
+            taskStart.updateDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE));
+            toolbar.setTitle(mItem.getTitle());
+        }
+
     }
 
     public void displayNotification(String message) {

@@ -2,6 +2,7 @@ package org.test.taskscheduler.presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.VisibleForTesting;
 import android.view.View;
 
 import org.test.taskscheduler.interactor.TaskInteractor;
@@ -28,7 +29,8 @@ public class TaskListPresenter {
         this(new TaskInteractor(context), taskListView);
     }
 
-    public TaskListPresenter(TaskInteractor taskInteractor, TaskListView taskListView) {
+    @VisibleForTesting
+    TaskListPresenter(TaskInteractor taskInteractor, TaskListView taskListView) {
         this.taskInteractor = taskInteractor;
         this.taskListView = taskListView;
     }

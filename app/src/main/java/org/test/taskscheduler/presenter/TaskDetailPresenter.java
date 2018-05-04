@@ -1,6 +1,7 @@
 package org.test.taskscheduler.presenter;
 
 import android.content.Context;
+import android.support.annotation.VisibleForTesting;
 
 import org.test.taskscheduler.R;
 import org.test.taskscheduler.interactor.TaskInteractor;
@@ -24,17 +25,17 @@ public class TaskDetailPresenter {
         this(context, view, new TaskInteractor(context));
     }
 
-    public TaskDetailPresenter(Context context, TaskDetailsView view, TaskInteractor taskInteractor) {
+    @VisibleForTesting
+    TaskDetailPresenter(Context context, TaskDetailsView view, TaskInteractor taskInteractor) {
         this.view = view;
         this.context = context;
         this.taskInteractor = taskInteractor;
     }
 
     public void onSaveTaskClicked(Task task) {
-        task = view.populateTaskDetails(task);
+        task = view.retrieveTaskDetails(task);
         saveTask(task);
     }
-
 
     private void saveTask(Task task) {
         String message;
@@ -47,6 +48,12 @@ public class TaskDetailPresenter {
         view.displayNotification(message);
         view.returnToListActivity(true);
 
+    }
+
+    public void displayTask(long taskId) {
+        Task task = taskInteractor.getTask(taskId);
+        if (task != null)
+            view.setTaskDetails(task);
     }
 
 }

@@ -30,7 +30,7 @@ public abstract class TaskRepository extends RoomDatabase {
     }
 
     private static TaskRepository buildDatabaseInstance(Context context) {
-        return Room.databaseBuilder(context, TaskRepository.class, Constants.DB_NAME).allowMainThreadQueries().build();
+        return Room.databaseBuilder(context, TaskRepository.class, Constants.DB_NAME)/*.allowMainThreadQueries()*/.build();
     }
 
     public void cleanUp() {
