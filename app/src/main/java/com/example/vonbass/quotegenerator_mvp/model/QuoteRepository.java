@@ -1,3 +1,4 @@
+
 package com.example.vonbass.quotegenerator_mvp.model;
 
 import android.content.ContentValues;
@@ -82,12 +83,12 @@ public class QuoteRepository extends SQLiteOpenHelper {
 
         String quote = result.getString(0);
         result.close();
-
         return quote;
     }
 
     public int getRepositorySize() {
 
+        updateRepositorySize(getReadableDatabase());
         return repositorySize;
     }
 
