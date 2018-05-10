@@ -118,8 +118,8 @@
     <orderEntry type="library" exported="" scope="TEST" name="runner-0.5" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="hamcrest-library-1.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-reflect-1.6.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="asm-commons-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="accessibility-test-framework-2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="asm-commons-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-5.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="junit-3.4.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="framework-3.4.2" level="project" />
@@ -133,13 +133,13 @@
     <orderEntry type="library" exported="" scope="TEST" name="icu4j-53.1" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-24.2.1" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-24.2.1" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="resources-3.4.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="asm-tree-5.0.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="sqlite4java-0.282" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="powermock-module-junit4-common-1.6.1" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="javassist-3.18.2-GA" level="project" />
-    <orderEntry type="library" exported="" scope="TEST" name="shadows-multidex-3.4-rc2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="sandbox-3.4.2" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="shadows-multidex-3.4-rc2" level="project" />
+    <orderEntry type="library" exported="" scope="TEST" name="javassist-3.18.2-GA" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="shadowapi-3.4.2" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-24.2.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="ant-1.8.0" level="project" />
