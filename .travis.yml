@@ -48,12 +48,12 @@ before_script:
 script: 
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
-  - chmod 755 login-mvp/gradlew
+  - cd login-mvp
+  - chmod 755 gradlew
   - ls -la
-  # Enable the line below once we get all the test passing, currently most of the tests are failing 
-  # so we'll just if the project compiles
-  #Run All tests Unit and Instrumentation
-  - travis_wait cd login-mvp/ && ./gradlew build --stacktrace && cd ../
+  # This is supposed to run the normal project build
+  - travis_wait ./gradlew clean build --stacktrace
+  - cd ..
 
 after_failure:
  - pandoc login/build/reports/tests/index.html -t plain
