@@ -1,6 +1,8 @@
 package org.opensrp.mvp.taskscheduler.view.contract;
 
 
+import android.content.Context;
+
 import org.opensrp.mvp.taskscheduler.model.Task;
 
 /**
@@ -8,11 +10,13 @@ import org.opensrp.mvp.taskscheduler.model.Task;
  */
 
 public interface TaskDetailsView {
-    void displayNotification(String message);
+    void displayNotification(int messageId);
 
     void returnToListActivity(boolean taskModified);
 
     Task retrieveTaskDetails(Task task);
 
     void setTaskDetails(Task task);
+
+    Context getContext();
 }

@@ -1,6 +1,6 @@
 package org.opensrp.mvp.taskscheduler.view;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,10 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import org.opensrp.mvp.taskscheduler.R;
 import org.opensrp.mvp.taskscheduler.adapter.TaskRecyclerViewAdapter;
 import org.opensrp.mvp.taskscheduler.presenter.TaskListPresenter;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskListView;
-import org.opensrp.mvp.taskscheduler.R;
 
 import static org.opensrp.mvp.taskscheduler.utils.Constants.TASKS_MODIFIED_RESULT_CODE;
 
@@ -55,13 +55,13 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
-        taskListPresenter = new TaskListPresenter(this, this);
+        taskListPresenter = new TaskListPresenter(this);
 
         recyclerView = findViewById(R.id.task_list);
         recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(taskListPresenter.getListener(null));
+        fab.setOnClickListener(getOnClickListener(null));
 
     }
 
@@ -78,9 +78,8 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
     }
 
     @Override
-    public void startDetailsActivity(Long id, View view) {
-        Activity context = (Activity) view.getContext();
-        Intent intent = new Intent(context, TaskDetailActivity.class);
+    public void startDetailsActivity(Long id) {
+        Intent intent = new Intent(this, TaskDetailActivity.class);
         if (id != null)
             intent.putExtra(TaskDetailFragment.ARG_ITEM_ID, id);
 
@@ -101,4 +100,20 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
     public boolean isTwoPanels() {
         return mTwoPane;
     }
+
+    @Override
+    public View.OnClickListener getOnClickListener(final Long id) {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                taskListPresenter.openDetailsView(id);
+            }
+        };
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
+
 }

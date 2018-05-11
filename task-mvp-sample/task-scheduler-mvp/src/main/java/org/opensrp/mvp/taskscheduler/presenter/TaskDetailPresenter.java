@@ -1,6 +1,5 @@
 package org.opensrp.mvp.taskscheduler.presenter;
 
-import android.content.Context;
 import android.support.annotation.VisibleForTesting;
 
 import org.opensrp.mvp.taskscheduler.R;
@@ -20,16 +19,13 @@ public class TaskDetailPresenter {
 
     private TaskDetailsView view;
 
-    private Context context;
-
-    public TaskDetailPresenter(Context context, TaskDetailsView view) {
-        this(context, view, new TaskInteractor(context));
+    public TaskDetailPresenter(TaskDetailsView view) {
+        this(view, new TaskInteractor(view.getContext()));
     }
 
     @VisibleForTesting
-    TaskDetailPresenter(Context context, TaskDetailsView view, TaskInteractor taskInteractor) {
+    TaskDetailPresenter(TaskDetailsView view, TaskInteractor taskInteractor) {
         this.view = view;
-        this.context = context;
         this.taskInteractor = taskInteractor;
     }
 
@@ -39,12 +35,12 @@ public class TaskDetailPresenter {
     }
 
     private void saveTask(Task task) {
-        String message;
+        int message;
         type operation = taskInteractor.saveOrUpdateTask(task);
         if (operation.equals(type.SAVED)) {
-            message = context.getResources().getString(R.string.task_saved);
+            message = R.string.task_saved;
         } else {
-            message = context.getResources().getString(R.string.task_updated);
+            message = R.string.task_updated;
         }
         view.displayNotification(message);
         view.returnToListActivity(true);

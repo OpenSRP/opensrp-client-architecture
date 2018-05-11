@@ -49,7 +49,7 @@ public class TaskRecyclerViewAdapter
         holder.startView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(mValues.get(position).getStart()));
         holder.completeView.setChecked(mValues.get(position).isCompleted());
 
-        holder.mView.setOnClickListener(taskListPresenter.getListener(holder.mItem.getId()));
+        holder.mView.setOnClickListener(taskListPresenter.getTaskListView().getOnClickListener(holder.mItem.getId()));
     }
 
     @Override

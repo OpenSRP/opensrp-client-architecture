@@ -1,7 +1,5 @@
 package org.opensrp.mvp.taskscheduler.presenter;
 
-import android.content.Context;
-
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -9,11 +7,10 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.opensrp.mvp.taskscheduler.BaseUnitTest;
+import org.opensrp.mvp.taskscheduler.R;
 import org.opensrp.mvp.taskscheduler.interactor.TaskInteractor;
 import org.opensrp.mvp.taskscheduler.model.Task;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskDetailsView;
-import org.robolectric.RuntimeEnvironment;
-import org.opensrp.mvp.taskscheduler.R;
 
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -37,11 +34,9 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
 
     private TaskDetailPresenter taskDetailPresenter;
 
-    private Context context = RuntimeEnvironment.application;
-
     @Before
     public void setUp() {
-        taskDetailPresenter = new TaskDetailPresenter(context, detailsView, taskInteractor);
+        taskDetailPresenter = new TaskDetailPresenter(detailsView, taskInteractor);
 
     }
 
@@ -53,7 +48,7 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         taskDetailPresenter.onSaveTaskClicked(task);
         verify(detailsView).retrieveTaskDetails(task);
         verify(taskInteractor).saveOrUpdateTask(task);
-        verify(detailsView).displayNotification(context.getResources().getString(R.string.task_saved));
+        verify(detailsView).displayNotification(R.string.task_saved);
         verify(detailsView).returnToListActivity(true);
     }
 
@@ -68,7 +63,7 @@ public class TaskDetailsPresenterTest extends BaseUnitTest {
         taskDetailPresenter.onSaveTaskClicked(task);
         verify(detailsView).retrieveTaskDetails(task);
         verify(taskInteractor).saveOrUpdateTask(task);
-        verify(detailsView).displayNotification(context.getResources().getString(R.string.task_updated));
+        verify(detailsView).displayNotification(R.string.task_updated);
         verify(detailsView).returnToListActivity(true);
     }
 

@@ -14,10 +14,10 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
+import org.opensrp.mvp.taskscheduler.R;
 import org.opensrp.mvp.taskscheduler.model.Task;
 import org.opensrp.mvp.taskscheduler.presenter.TaskDetailPresenter;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskDetailsView;
-import org.opensrp.mvp.taskscheduler.R;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -64,7 +64,7 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        taskDetailPresenter = new TaskDetailPresenter(getActivity(), this);
+        taskDetailPresenter = new TaskDetailPresenter(this);
 
         toolbar = getActivity().findViewById(R.id.toolbar);
         toolbar.setTitle("Add New Task");
@@ -127,8 +127,8 @@ public class TaskDetailFragment extends Fragment implements TaskDetailsView {
 
     }
 
-    public void displayNotification(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+    public void displayNotification(int messageId) {
+        Toast.makeText(getActivity(), getActivity().getResources().getString(messageId), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package org.opensrp.mvp.taskscheduler.view.contract;
 
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -13,5 +14,9 @@ public interface TaskListView {
 
     void startDetailsFragment(Long id);
 
-    void startDetailsActivity(Long id, View v);
+    void startDetailsActivity(Long id);
+
+    View.OnClickListener getOnClickListener(Long id);
+
+    Context getContext();
 }
