@@ -51,6 +51,7 @@ script:
   - ls -la
   # This is supposed to run the normal project build
   - travis_wait ./gradlew clean build --stacktrace
+  - cd ..
 
 after_failure:
  #- pandoc opensrp-app/build/reports/tests/index.html -t plain
