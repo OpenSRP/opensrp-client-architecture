@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/opensrp-client-architecture.iml" filepath="$PROJECT_DIR$/opensrp-client-architecture.iml" />
-      <module fileurl="file://$PROJECT_DIR$/task-scheduler-mvp/task-scheduler-mvp.iml" filepath="$PROJECT_DIR$/task-scheduler-mvp/task-scheduler-mvp.iml" />
-    </modules>
-  </component>
-</project>
