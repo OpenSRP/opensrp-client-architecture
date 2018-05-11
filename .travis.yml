@@ -18,12 +18,12 @@ android:
     # tools required
     - tools
     # The BuildTools version used by your project
+    - build-tools-24
     - build-tools-26.0.1
-    - build-tools-27.0.3
     # The SDK version used to compile your projects
-    - android-21
-    - android-22
-    - android-27
+    - android-17
+    - android-24
+    - android-24
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
@@ -48,12 +48,14 @@ before_script:
 script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+  - cd random-quote-generator-mvp
   - chmod 755 gradlew
   - ls -la
   # Enable the line below once we get all the test passing, currently most of the tests are failing
   # so we'll just if the project compiles
   #Run All tests Unit and Instrumentation
   - travis_wait ./gradlew app:build --stacktrace
+  - cd ..
 
 after_failure:
  - pandoc login/build/reports/tests/index.html -t plain
