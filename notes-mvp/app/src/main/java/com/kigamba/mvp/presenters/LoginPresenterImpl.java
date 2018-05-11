@@ -1,6 +1,7 @@
 package com.kigamba.mvp.presenters;
 
 import com.kigamba.mvp.interactors.LoginInteractor;
+import com.kigamba.mvp.interactors.LoginInteractorImpl;
 import com.kigamba.mvp.views.LoginView;
 
 /**
@@ -11,9 +12,9 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     private LoginView loginView;
     private LoginInteractor loginInteractor;
 
-    public LoginPresenterImpl(LoginView loginView, LoginInteractor loginInteractor) {
+    public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
-        this.loginInteractor = loginInteractor;
+        this.loginInteractor = new LoginInteractorImpl();
     }
 
     @Override

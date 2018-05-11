@@ -34,7 +34,7 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
         password = (EditText) findViewById(R.id.login_passwordText);
         findViewById(R.id.login_loginButton).setOnClickListener(this);
 
-        presenter = new LoginPresenterImpl(this, new LoginInteractorImpl());
+        presenter = new LoginPresenterImpl(this);
     }
 
     @Override

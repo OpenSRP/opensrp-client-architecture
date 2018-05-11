@@ -28,7 +28,8 @@ public class LoginPresenterTest {
 
     @Before
     public void setup() {
-        loginPresenter = new LoginPresenterImpl(loginView, loginInteractor);
+        loginPresenter = new LoginPresenterImpl(loginView);
+        Whitebox.setInternalState(loginPresenter, "loginInteractor", loginInteractor);
     }
 
     @Test
