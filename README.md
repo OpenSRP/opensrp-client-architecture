@@ -1,1 +1,2 @@
-# android-mvp
+# opensrp-client-architecture
+OpenSRP Client Architecture
