@@ -1,6 +1,6 @@
 package com.kigamba.mvp.validators;
 
-import android.text.TextUtils;
+import com.kigamba.mvp.Utils;
 
 /**
  * Created by Ephraim Kigamba - ekigamba@ona.io on 23/04/2018.
@@ -13,11 +13,11 @@ public class CredentialsValidator {
     public static final int CREDENTIALS_OK = 3;
 
     public static int isCredentialsOk(String username, String password) {
-        if (TextUtils.isEmpty(username)) {
+        if (Utils.isBlank(username)) {
             return USERNAME_ERROR;
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (Utils.isBlank(password)) {
             return PASSWORD_ERROR;
         }
 

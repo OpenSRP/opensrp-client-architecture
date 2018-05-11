@@ -1,7 +1,6 @@
 package com.kigamba.mvp;
 
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 
 import com.kigamba.mvp.persistence.daos.NoteDao;
 import com.kigamba.mvp.persistence.entities.Note;
@@ -23,7 +22,7 @@ public class Utils {
     }
 
     public static boolean validateNoteDetails(String title, String description) {
-        if (!TextUtils.isEmpty(title.trim()) && !TextUtils.isEmpty(description.trim())) {
+        if (!isBlank(title) && !isBlank(description)) {
             return true;
         }
 
@@ -42,5 +41,17 @@ public class Utils {
             noteDao.update(note);
             return true;
         }
+    }
+
+    /**
+     * <p>Checks if a (trimmed) String is <code>null</code> or empty.</p>
+     *
+     * @param str the String to check
+     * @return <code>true</code> if the String is <code>null</code>, or
+     *  length zero once trimmed
+     */
+    public static boolean isBlank( String str )
+    {
+        return ( ( str == null ) || ( str.trim().length() == 0 ) );
     }
 }

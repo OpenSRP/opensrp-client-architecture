@@ -2,13 +2,15 @@ package com.kigamba.mvp.interactors;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Ephraim Kigamba - ekigamba@ona.io on 04/05/2018.
  */
+@RunWith(RobolectricTestRunner.class)
 public class GetWeatherDataInteractorImplTest {
 
     private GetWeatherDataInteractorImpl getWeatherDataInteractor;
