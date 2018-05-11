@@ -11,10 +11,10 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.opensrp.mvp.taskscheduler.BaseUnitTest;
+import org.opensrp.mvp.taskscheduler.R;
 import org.opensrp.mvp.taskscheduler.interactor.TaskInteractor;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskListView;
 import org.robolectric.RuntimeEnvironment;
-import org.test.taskscheduler.R;
 
 import static android.app.Activity.RESULT_OK;
 import static org.mockito.Mockito.never;
