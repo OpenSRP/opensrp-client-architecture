@@ -17,9 +17,8 @@ import static android.view.View.GONE;
 public class MainActivity extends AppCompatActivity implements MainView {
 
     private TextView textView;
-    private Button button;
     private ProgressBar progressBar;
-    MainPresenter presenter;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +26,10 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
 
         textView = (TextView) findViewById(R.id.textView);
-        button = (Button) findViewById(R.id.button);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         presenter = new MainPresenterImpl(this);
 
+        Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,11 +1,10 @@
 package org.smartregister.mvp.random_quote_generator.presenter;
 
-import android.app.Activity;
 import android.content.Context;
 
+import org.smartregister.mvp.random_quote_generator.presenter.interactor.GetQuoteInteractor;
 import org.smartregister.mvp.random_quote_generator.presenter.interactor.GetQuoteInteractorImpl;
 import org.smartregister.mvp.random_quote_generator.view.MainView;
-import org.smartregister.mvp.random_quote_generator.presenter.interactor.GetQuoteInteractor;
 import org.smartregister.mvp.random_quote_generator.view.activity.MainActivity;
 
 /**

@@ -40,7 +40,7 @@ public class MainPresenterTest {
     @Mock
     Context context;
 
-    MainPresenterImpl mainPresenter;
+    private MainPresenterImpl mainPresenter;
 
     @Before
     public void setUp() {
