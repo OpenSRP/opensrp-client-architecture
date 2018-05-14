@@ -5,14 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import org.opensrp.mvp.taskscheduler.R;
 import org.opensrp.mvp.taskscheduler.adapter.TaskRecyclerViewAdapter;
+import org.opensrp.mvp.taskscheduler.model.Task;
 import org.opensrp.mvp.taskscheduler.presenter.TaskListPresenter;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskListView;
+
+import java.util.List;
 
 import static org.opensrp.mvp.taskscheduler.utils.Constants.TASKS_MODIFIED_RESULT_CODE;
 
@@ -38,6 +43,11 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
 
     private RecyclerView recyclerView;
 
+    private ProgressBar progressBar;
+
+
+    private TaskRecyclerViewAdapter taskRecyclerViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +65,21 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
+
+        progressBar = findViewById(R.id.progress_bar);
+        recyclerView = findViewById(R.id.task_list);
+
         taskListPresenter = new TaskListPresenter(this);
 
-        recyclerView = findViewById(R.id.task_list);
-        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
+        recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        taskRecyclerViewAdapter = new TaskRecyclerViewAdapter(taskListPresenter);
+        recyclerView.setAdapter(taskRecyclerViewAdapter);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(getOnClickListener(null));
+
+        hideProgressBar();
 
     }
 
@@ -94,6 +112,24 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
     @Override
     public void refreshTasks() {
         recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
+    }
+
+    @Override
+    public void displayTasks(List<Task> tasks) {
+        taskRecyclerViewAdapter.setTasks(tasks);
+        taskRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showProgressBar() {
+        progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
     }
 
     @Override

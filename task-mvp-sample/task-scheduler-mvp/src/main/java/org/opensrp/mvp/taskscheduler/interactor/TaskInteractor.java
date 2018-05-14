@@ -43,6 +43,7 @@ public class TaskInteractor {
                 new FutureTask<>(new Callable<List<Task>>() {
                     public List<Task> call() {
                         return taskDao.getAll();
+
                     }
                 });
         appExecutors.diskIO().execute(future);

@@ -21,11 +21,11 @@ import java.util.List;
 public class TaskRecyclerViewAdapter
         extends RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Task> mValues;
+    private List<Task> tasks;
     private TaskListPresenter taskListPresenter;
 
     public TaskRecyclerViewAdapter(TaskListPresenter taskListPresenter) {
-        mValues = taskListPresenter.getAllTasks();
+        tasks = taskListPresenter.getAllTasks();
         this.taskListPresenter = taskListPresenter;
     }
 
@@ -38,23 +38,23 @@ public class TaskRecyclerViewAdapter
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
+        holder.mItem = tasks.get(position);
         if (holder.titleView.getVisibility() == View.GONE) {
-            holder.detailsView.setText(mValues.get(position).getTitle() + "\n" + mValues.get(position).getDetails());
+            holder.detailsView.setText(tasks.get(position).getTitle() + "\n" + tasks.get(position).getDetails());
         } else {
-            holder.titleView.setText(mValues.get(position).getTitle());
-            holder.detailsView.setText(mValues.get(position).getDetails());
+            holder.titleView.setText(tasks.get(position).getTitle());
+            holder.detailsView.setText(tasks.get(position).getDetails());
         }
-        holder.durationView.setText(mValues.get(position).getDuration() + " hours");
-        holder.startView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(mValues.get(position).getStart()));
-        holder.completeView.setChecked(mValues.get(position).isCompleted());
+        holder.durationView.setText(tasks.get(position).getDuration() + " hours");
+        holder.startView.setText(DateFormat.getDateInstance(DateFormat.SHORT).format(tasks.get(position).getStart()));
+        holder.completeView.setChecked(tasks.get(position).isCompleted());
 
         holder.mView.setOnClickListener(taskListPresenter.getTaskListView().getOnClickListener(holder.mItem.getId()));
     }
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return tasks.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -80,5 +80,9 @@ public class TaskRecyclerViewAdapter
         public String toString() {
             return super.toString() + " '" + detailsView.getText() + "'";
         }
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }

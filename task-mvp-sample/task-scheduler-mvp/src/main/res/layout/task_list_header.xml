@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="30dp"
-              android:orientation="horizontal"
-              android:weightSum="13">
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="@color/tasks_header"
+    android:orientation="horizontal"
+    android:weightSum="13">
 
     <TextView
         android:id="@+id/task_title"
@@ -11,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:text="Title"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/task_detail"
@@ -20,7 +21,8 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_weight="4"
         android:text="Details"
-        android:textAppearance="?attr/textAppearanceListItem"/>
+        android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/task_duration"
@@ -29,7 +31,8 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_weight="3"
         android:text="Duration"
-        android:textAppearance="?attr/textAppearanceListItem"/>
+        android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/task_start"
@@ -38,7 +41,8 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_weight="3"
         android:text="Starting"
-        android:textAppearance="?attr/textAppearanceListItem"/>
+        android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
         android:id="@+id/task_complete"
@@ -47,7 +51,7 @@
         android:layout_margin="@dimen/text_margin"
         android:layout_weight="3"
         android:text="Completed"
-        android:textAppearance="?attr/textAppearanceListItem"
-        />
+        android:gravity="center_horizontal"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
 </LinearLayout>
