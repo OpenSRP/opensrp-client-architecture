@@ -44,7 +44,7 @@ public class TaskListPresenterTest extends BaseUnitTest {
     @Test
     public void testGetAllTasks() {
         taskListPresenter.getAllTasks();
-        verify(taskInteractor).getAllTasks();
+        verify(taskInteractor).getAllTasks(taskListPresenter);
     }
 
     @Test

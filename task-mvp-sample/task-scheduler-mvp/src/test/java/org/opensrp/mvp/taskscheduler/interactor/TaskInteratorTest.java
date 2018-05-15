@@ -3,18 +3,22 @@ package org.opensrp.mvp.taskscheduler.interactor;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import org.opensrp.mvp.taskscheduler.BaseUnitTest;
 import org.opensrp.mvp.taskscheduler.dao.TaskDao;
 import org.opensrp.mvp.taskscheduler.model.Task;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TaskListCallBack;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,6 +36,12 @@ public class TaskInteratorTest extends BaseUnitTest {
     @Mock
     private TaskDao taskDao;
 
+    @Mock
+    private TaskListCallBack callBack;
+
+    @Captor
+    private ArgumentCaptor<List<Task>> listArgumentCaptor;
+
     @Before
     public void setUp() {
         taskInteractor = new TaskInteractor(taskDao);
@@ -45,8 +55,11 @@ public class TaskInteratorTest extends BaseUnitTest {
         Date now = new Date();
         task.setStart(now);
         when(taskDao.getAll()).thenReturn(Arrays.asList(task));
-        List<Task> tasks = taskInteractor.getAllTasks();
-        verify(taskDao).getAll();
+        taskInteractor.getAllTasks(callBack);
+        verify(taskDao, timeout(ASYNC_TIMEOUT)).getAll();
+
+        verify(callBack).onTasksFetched(listArgumentCaptor.capture());
+        List<Task> tasks = listArgumentCaptor.getValue();
 
         assertEquals(1, tasks.size());
         assertEquals(12, tasks.get(0).getId());

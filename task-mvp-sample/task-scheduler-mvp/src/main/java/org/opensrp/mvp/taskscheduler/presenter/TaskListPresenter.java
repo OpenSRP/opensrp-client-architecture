@@ -5,6 +5,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.opensrp.mvp.taskscheduler.interactor.TaskInteractor;
 import org.opensrp.mvp.taskscheduler.model.Task;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TaskListCallBack;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskListView;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import static org.opensrp.mvp.taskscheduler.utils.Constants.TASKS_MODIFIED_RESUL
  * Created by samuelgithengi on 4/11/18.
  */
 
-public class TaskListPresenter {
+public class TaskListPresenter implements TaskListCallBack {
 
     private TaskInteractor taskInteractor;
     private TaskListView taskListView;
@@ -34,8 +35,8 @@ public class TaskListPresenter {
     }
 
 
-    public List<Task> getAllTasks() {
-        return taskInteractor.getAllTasks();
+    public void getAllTasks() {
+        taskInteractor.getAllTasks(this);
     }
 
     public void openDetailsView(Long id) {
@@ -52,7 +53,14 @@ public class TaskListPresenter {
         }
     }
 
+    @Override
+    public void onTasksFetched(List<Task> tasks) {
+        taskListView.displayTasks(tasks);
+        taskListView.hideProgressBar();
+    }
+
     public TaskListView getTaskListView() {
         return taskListView;
     }
+
 }

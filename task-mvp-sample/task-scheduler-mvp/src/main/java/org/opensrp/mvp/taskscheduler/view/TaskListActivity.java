@@ -79,8 +79,6 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(getOnClickListener(null));
 
-        hideProgressBar();
-
     }
 
     @Override
