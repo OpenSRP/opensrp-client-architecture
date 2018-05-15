@@ -56,7 +56,6 @@ public class LoginPresenter implements LoginContract.Presenter {
 
         // Store values at the time of the org.smartresiger.mvp.login attempt.
         boolean cancel = false;
-        View focusView = null;
 
         // Check for a valid password, if the user entered one.
         if (!mLoginModel.isPasswordValid(password)) {
@@ -81,11 +80,11 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
 
-    private LoginContract.View getLoginView() throws NullPointerException {
+    private LoginContract.View getLoginView()  {
         if (mLoginView != null)
             return mLoginView.get();
         else
-            throw new NullPointerException("Login View is unavailable");
+            return null;
     }
 
 }

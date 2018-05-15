@@ -100,11 +100,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.email_sign_in_button: {
+            case R.id.email_sign_in_button:
                 String email = mEmailView.getText().toString();
                 String password = mPasswordView.getText().toString();
                 mLoginPresenter.attemptLogin(email, password);
-            }
+                break;
+            default:
+                break;
         }
     }
 
@@ -166,10 +168,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_READ_CONTACTS) {
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                populateAutoComplete();
-            }
+        if (requestCode == REQUEST_READ_CONTACTS && grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            populateAutoComplete();
         }
     }
 
@@ -241,7 +241,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
-
+        // TODO Add reset functionality
     }
 
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {

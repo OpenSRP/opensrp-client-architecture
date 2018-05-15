@@ -26,7 +26,7 @@ public class LoginPresenterTest {
     private LoginContract.View mockView;
 
     @Before
-    public void setup() {
+    public void setUp() {
         mockView = Mockito.mock(LoginContract.View.class);
         mockModel = Mockito.mock(LoginModel.class, RETURNS_DEEP_STUBS);
         mPresenter = new LoginPresenter(mockView);

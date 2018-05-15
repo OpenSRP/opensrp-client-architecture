@@ -22,7 +22,7 @@ public class LoginModelTest {
     private LoginModel mLoginModel;
 
     @Before
-    public void setup() {
+    public void setUp() {
         LoginPresenter mockPresenter = Mockito.mock(LoginPresenter.class);
         mLoginModel = new LoginModel(mockPresenter);
 
