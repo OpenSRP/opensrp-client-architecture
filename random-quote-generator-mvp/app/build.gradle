@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.vonbass.quotegenerator_mvp"
-        minSdkVersion 17
+        minSdkVersion 22
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
