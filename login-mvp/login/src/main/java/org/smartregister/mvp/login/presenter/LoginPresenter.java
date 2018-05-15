@@ -1,7 +1,5 @@
 package org.smartregister.mvp.login.presenter;
 
-import android.view.View;
-
 import org.smartregister.mvp.login.R;
 import org.smartregister.mvp.login.contract.LoginContract;
 import org.smartregister.mvp.login.model.LoginModel;
