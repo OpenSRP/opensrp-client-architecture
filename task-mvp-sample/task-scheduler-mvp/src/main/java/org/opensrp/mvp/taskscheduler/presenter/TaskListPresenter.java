@@ -5,7 +5,7 @@ import android.support.annotation.VisibleForTesting;
 
 import org.opensrp.mvp.taskscheduler.interactor.TaskInteractor;
 import org.opensrp.mvp.taskscheduler.model.Task;
-import org.opensrp.mvp.taskscheduler.presenter.callback.TaskListCallBack;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TasksCallback.TaskListCallBack;
 import org.opensrp.mvp.taskscheduler.view.contract.TaskListView;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class TaskListPresenter implements TaskListCallBack {
     }
 
 
-    public void getAllTasks() {
+    public void fetchTasks() {
         taskInteractor.getAllTasks(this);
     }
 
@@ -48,9 +48,15 @@ public class TaskListPresenter implements TaskListCallBack {
 
     public void processActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == TASKS_MODIFIED_RESULT_CODE) {
-            if (data.getBooleanExtra(TASKS_MODIFIED, false))
-                taskListView.refreshTasks();
+            if (data.getBooleanExtra(TASKS_MODIFIED, false)) {
+                refreshTasks();
+            }
         }
+    }
+
+    public void refreshTasks() {
+        taskListView.showProgressBar();
+        fetchTasks();
     }
 
     @Override

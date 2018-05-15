@@ -12,7 +12,6 @@ import java.util.List;
  */
 
 public interface TaskListView {
-    void refreshTasks();
 
     void displayTasks(List<Task> tasks);
 

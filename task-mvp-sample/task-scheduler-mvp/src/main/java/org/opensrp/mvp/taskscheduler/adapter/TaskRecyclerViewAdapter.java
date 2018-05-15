@@ -26,7 +26,7 @@ public class TaskRecyclerViewAdapter
     private TaskListPresenter taskListPresenter;
 
     public TaskRecyclerViewAdapter(TaskListPresenter taskListPresenter) {
-        taskListPresenter.getAllTasks();
+        taskListPresenter.fetchTasks();
         this.taskListPresenter = taskListPresenter;
     }
 

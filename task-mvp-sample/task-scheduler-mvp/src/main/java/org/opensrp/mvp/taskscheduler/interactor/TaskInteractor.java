@@ -2,19 +2,15 @@ package org.opensrp.mvp.taskscheduler.interactor;
 
 import android.content.Context;
 import android.support.annotation.VisibleForTesting;
-import android.util.Log;
 
 import org.opensrp.mvp.taskscheduler.dao.TaskDao;
 import org.opensrp.mvp.taskscheduler.model.Task;
-import org.opensrp.mvp.taskscheduler.presenter.callback.TaskListCallBack;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TasksCallback.TaskDetailsCallBack;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TasksCallback.TaskListCallBack;
 import org.opensrp.mvp.taskscheduler.repository.TaskRepository;
 import org.opensrp.mvp.taskscheduler.utils.AppExecutors;
 
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.FutureTask;
 
 /**
  * Created by samuelgithengi on 5/4/18.
@@ -31,13 +27,13 @@ public class TaskInteractor {
     private AppExecutors appExecutors;
 
     @VisibleForTesting
-    TaskInteractor(TaskDao taskDao) {
+    TaskInteractor(TaskDao taskDao, AppExecutors appExecutors) {
         this.taskDao = taskDao;
-        appExecutors = new AppExecutors(Executors.newSingleThreadExecutor(), Executors.newSingleThreadExecutor(), Executors.newSingleThreadExecutor());
+        this.appExecutors = appExecutors;
     }
 
     public TaskInteractor(Context context) {
-        this(TaskRepository.getInstance(context).getTaskDao());
+        this(TaskRepository.getInstance(context).getTaskDao(), new AppExecutors());
     }
 
     public void getAllTasks(final TaskListCallBack callBack) {
@@ -58,46 +54,45 @@ public class TaskInteractor {
         appExecutors.diskIO().execute(runnable);
     }
 
-    public type saveOrUpdateTask(final Task task) {
-        FutureTask<type> future =
-                new FutureTask<>(new Callable<type>() {
-                    public type call() {
-                        if (task.getId() == 0) {
-                            taskDao.insert(task);
-                            return type.SAVED;
-                        } else {
-                            taskDao.update(task);
-                            return type.UPDATED;
-                        }
+    public void saveOrUpdateTask(final Task task, final TaskDetailsCallBack callBack) {
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                final type status;
+                if (task.getId() == 0) {
+                    taskDao.insert(task);
+                    status = type.SAVED;
+                } else {
+                    taskDao.update(task);
+                    status = type.UPDATED;
+                }
+                appExecutors.mainThread().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onTaskSaved(status);
                     }
                 });
-        appExecutors.diskIO().execute(future);
-        try {
-            return future.get();
-        } catch (InterruptedException e) {
-            Log.e(TAG, "saveOrUpdateTask:InterruptedException ", e);
-        } catch (ExecutionException e) {
-            Log.e(TAG, "saveOrUpdateTask:ExecutionException ", e);
-        }
-        return null;
+            }
+        };
+        appExecutors.diskIO().execute(runnable);
     }
 
-    public Task getTask(final long taskId) {
-        FutureTask<Task> future =
-                new FutureTask<>(new Callable<Task>() {
-                    public Task call() {
-                        return taskDao.findById(taskId);
+    public void getTask(final long taskId, final TaskDetailsCallBack callBack) {
+
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                final Task task = taskDao.findById(taskId);
+                appExecutors.mainThread().execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onTaskFetched(task);
                     }
                 });
-        appExecutors.diskIO().execute(future);
-        try {
-            return future.get();
-        } catch (InterruptedException e) {
-            Log.e(TAG, "saveOrUpdateTask:InterruptedException ", e);
-        } catch (ExecutionException e) {
-            Log.e(TAG, "saveOrUpdateTask:ExecutionException ", e);
-        }
-        return null;
+            }
+        };
+        appExecutors.diskIO().execute(runnable);
     }
 
 

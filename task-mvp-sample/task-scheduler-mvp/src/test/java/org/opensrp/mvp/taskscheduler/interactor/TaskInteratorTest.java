@@ -11,16 +11,20 @@ import org.mockito.junit.MockitoRule;
 import org.opensrp.mvp.taskscheduler.BaseUnitTest;
 import org.opensrp.mvp.taskscheduler.dao.TaskDao;
 import org.opensrp.mvp.taskscheduler.model.Task;
-import org.opensrp.mvp.taskscheduler.presenter.callback.TaskListCallBack;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TasksCallback.TaskDetailsCallBack;
+import org.opensrp.mvp.taskscheduler.presenter.callback.TasksCallback.TaskListCallBack;
+import org.opensrp.mvp.taskscheduler.utils.AppExecutors;
 
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.timeout;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.opensrp.mvp.taskscheduler.interactor.TaskInteractor.type;
 
 /**
  * Created by samuelgithengi on 5/4/18.
@@ -42,9 +46,18 @@ public class TaskInteratorTest extends BaseUnitTest {
     @Captor
     private ArgumentCaptor<List<Task>> listArgumentCaptor;
 
+    @Mock
+    private TaskDetailsCallBack detailsCallBack;
+
+    @Captor
+    private ArgumentCaptor<Task> detailsArgumentCaptor;
+
+    @Captor
+    private ArgumentCaptor<TaskInteractor.type> statusArgumentCaptor;
+
     @Before
     public void setUp() {
-        taskInteractor = new TaskInteractor(taskDao);
+        taskInteractor = new TaskInteractor(taskDao, new AppExecutors(Executors.newSingleThreadExecutor(), Executors.newSingleThreadExecutor(), Executors.newSingleThreadExecutor()));
     }
 
     @Test
@@ -71,8 +84,11 @@ public class TaskInteratorTest extends BaseUnitTest {
     @Test
     public void testSaveNewTask() {
         Task task = new Task();
-        taskInteractor.saveOrUpdateTask(task);
-        verify(taskDao).insert(task);
+        taskInteractor.saveOrUpdateTask(task, detailsCallBack);
+        verify(taskDao, timeout(ASYNC_TIMEOUT)).insert(task);
+
+        verify(detailsCallBack).onTaskSaved(statusArgumentCaptor.capture());
+        assertEquals(type.SAVED, statusArgumentCaptor.getValue());
     }
 
     @Test
@@ -81,8 +97,12 @@ public class TaskInteratorTest extends BaseUnitTest {
         task.setId(12l);
         task.setTitle("MVP Testing");
 
-        taskInteractor.saveOrUpdateTask(task);
-        verify(taskDao).update(task);
+        taskInteractor.saveOrUpdateTask(task, detailsCallBack);
+        verify(taskDao, timeout(ASYNC_TIMEOUT)).update(task);
+
+        verify(detailsCallBack).onTaskSaved(statusArgumentCaptor.capture());
+        assertEquals(type.UPDATED, statusArgumentCaptor.getValue());
+
     }
 
 
@@ -91,12 +111,15 @@ public class TaskInteratorTest extends BaseUnitTest {
         long taskId = 23;
         Task task = new Task();
         task.setId(taskId);
-        task.setTitle("MVP Testing");
+        task.setTitle("testGetTask");
 
         when(taskDao.findById(taskId)).thenReturn(task);
-        Task returnedTask = taskInteractor.getTask(taskId);
-        verify(taskDao).findById(taskId);
+        taskInteractor.getTask(taskId, detailsCallBack);
+        verify(taskDao, timeout(ASYNC_TIMEOUT)).findById(taskId);
+
+        verify(detailsCallBack).onTaskFetched(detailsArgumentCaptor.capture());
+        Task returnedTask = detailsArgumentCaptor.getValue();
         assertEquals(taskId, returnedTask.getId());
-        assertEquals("MVP Testing", returnedTask.getTitle());
+        assertEquals("testGetTask", returnedTask.getTitle());
     }
 }

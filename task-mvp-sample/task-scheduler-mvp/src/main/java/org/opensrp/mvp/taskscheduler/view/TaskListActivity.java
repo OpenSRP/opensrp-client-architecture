@@ -108,11 +108,6 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
     }
 
     @Override
-    public void refreshTasks() {
-        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
-    }
-
-    @Override
     public void displayTasks(List<Task> tasks) {
         taskRecyclerViewAdapter.setTasks(tasks);
         taskRecyclerViewAdapter.notifyDataSetChanged();
