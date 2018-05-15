@@ -11,7 +11,8 @@ import com.kigamba.mvp.persistence.entities.Note;
 
 public class Utils {
 
-    public static Note prepareNoteForSaving(@Nullable Note note) {
+    public static Note prepareNoteForSaving(@Nullable Note paramNote) {
+        Note note = paramNote;
         if (note == null) {
             note = new Note();
         } else {
@@ -22,11 +23,7 @@ public class Utils {
     }
 
     public static boolean validateNoteDetails(String title, String description) {
-        if (!isBlank(title) && !isBlank(description)) {
-            return true;
-        }
-
-        return false;
+        return (!isBlank(title) && !isBlank(description));
     }
 
     public static boolean isNoteNew(Note note) {

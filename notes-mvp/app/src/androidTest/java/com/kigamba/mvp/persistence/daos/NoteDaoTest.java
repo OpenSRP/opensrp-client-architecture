@@ -7,7 +7,6 @@ import android.support.test.filters.SmallTest;
 
 import com.kigamba.mvp.BaseTest;
 import com.kigamba.mvp.persistence.AppDatabase;
-import com.kigamba.mvp.persistence.daos.NoteDao;
 import com.kigamba.mvp.persistence.entities.Note;
 
 import org.junit.After;
@@ -64,7 +63,7 @@ public class NoteDaoTest extends BaseTest{
             }
         }
 
-        Assert.assertTrue(noteFound);
+        assertTrue(noteFound);
         noteDao.delete(note);
     }
 
@@ -164,15 +163,11 @@ public class NoteDaoTest extends BaseTest{
     }
 
     public static boolean areNotesEqual(Note n1, Note n2) {
-        if (n1.getId() == n2.getId()
+        return (n1.getId() == n2.getId()
                 && n1.getTitle().equals(n2.getTitle())
                 && n1.getDescription().equals(n2.getDescription())
                 && n1.getDateCreated() == n2.getDateCreated()
-                && n1.getLastModified() == n2.getLastModified()) {
-            return true;
-        }
-
-        return false;
+                && n1.getLastModified() == n2.getLastModified());
     }
 
     public Note[] generateAndSaveNotes(int no) {

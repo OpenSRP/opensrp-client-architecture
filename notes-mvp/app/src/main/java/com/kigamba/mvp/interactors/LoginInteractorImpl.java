@@ -29,6 +29,9 @@ public class LoginInteractorImpl implements LoginInteractor {
 
                     case CredentialsValidator.CREDENTIALS_OK:
                         break;
+
+                    default:
+                        break;
                 }
 
                 if (fail) {

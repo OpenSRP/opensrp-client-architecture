@@ -25,7 +25,7 @@ public class NotesInteractorImplTest {
     private NoteDao noteDao;
 
     @Before
-    public void setup() {
+    public void setUp() {
         notesInteractor = new NotesInteractorImpl();
     }
 

@@ -3,7 +3,6 @@ package com.kigamba.mvp.interactors;
 import android.content.Context;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Created by Kigamba on 01-May-18.

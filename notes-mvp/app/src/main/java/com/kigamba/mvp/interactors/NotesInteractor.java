@@ -5,7 +5,6 @@ import android.content.Context;
 import com.kigamba.mvp.persistence.daos.NoteDao;
 import com.kigamba.mvp.persistence.entities.Note;
 
-import java.util.List;
 /**
  * Created by Ephraim Kigamba - ekigamba@ona.io on 12/04/2018.
  */

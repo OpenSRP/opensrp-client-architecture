@@ -24,13 +24,13 @@ import static org.mockito.Mockito.verify;
 public class MainPresenterTest {
 
     @Mock
-    MainView mainView;
+    private MainView mainView;
 
     @Mock
-    NotesInteractor interactor;
+    private NotesInteractor interactor;
 
     @Mock
-    GetWeatherDataInteractor getWeatherDataInteractor;
+    private GetWeatherDataInteractor getWeatherDataInteractor;
 
     private MainPresenterImpl presenter;
 
@@ -94,8 +94,8 @@ public class MainPresenterTest {
 
         presenter.onFinished(notes);
 
-        verify(mainView, Mockito.times(1)).hideProgress();
-        verify(mainView, Mockito.times(1)).setNotes(notes);
+        verify(mainView, times(1)).hideProgress();
+        verify(mainView, times(1)).setNotes(notes);
     }
 
     @Test
@@ -105,8 +105,8 @@ public class MainPresenterTest {
         Whitebox.setInternalState(presenter, "mainView", null);
         presenter.onFinished(notes);
 
-        verify(mainView, Mockito.times(0)).hideProgress();
-        verify(mainView, Mockito.times(0)).setNotes(notes);
+        verify(mainView, times(0)).hideProgress();
+        verify(mainView, times(0)).setNotes(notes);
 
         Whitebox.setInternalState(presenter, "mainView", mainView);
     }

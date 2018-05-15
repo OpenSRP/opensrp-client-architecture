@@ -2,8 +2,6 @@ package com.kigamba.mvp.views;
 
 import com.kigamba.mvp.persistence.entities.Note;
 
-import java.util.List;
-
 /**
  * Created by Ephraim Kigamba - ekigamba@ona.io on 12/04/2018.
  */

@@ -14,20 +14,6 @@ import static org.junit.Assert.assertTrue;
 public class GetWeatherDataInteractorImplTest {
 
     private GetWeatherDataInteractorImpl getWeatherDataInteractor;
-
-    @Before
-    public void setup() {
-        getWeatherDataInteractor = new GetWeatherDataInteractorImpl();
-    }
-
-    @Test
-    public void getHumanReadableWeather() throws Exception {
-        String expectedWeather = "scattered clouds";
-        String weather = getWeatherDataInteractor.getHumanReadableWeather(weatherResponseForNairobi);
-
-        assertTrue(expectedWeather.equals(weather));
-    }
-
     private String weatherResponseForNairobi = "{\n" +
             "    \"coord\": {\n" +
             "        \"lon\": 36.82,\n" +
@@ -70,4 +56,16 @@ public class GetWeatherDataInteractorImplTest {
             "    \"cod\": 200\n" +
             "}";
 
+    @Before
+    public void setUp() {
+        getWeatherDataInteractor = new GetWeatherDataInteractorImpl();
+    }
+
+    @Test
+    public void getHumanReadableWeather() throws Exception {
+        String expectedWeather = "scattered clouds";
+        String weather = getWeatherDataInteractor.getHumanReadableWeather(weatherResponseForNairobi);
+
+        assertTrue(expectedWeather.equals(weather));
+    }
 }

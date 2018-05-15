@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
     private ListView listView;
     private ProgressBar progressBar;
     private MainPresenter presenter;
-    private FloatingActionButton newNoteBtn;
     private BroadcastReceiver newNoteUpdateReceiver;
 
     public static final String PARCELEABLE_KEY_NOTE_ID = "NOTE ID";
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
         listView = (ListView) findViewById(R.id.list);
         listView.setOnItemClickListener(this);
         progressBar = (ProgressBar) findViewById(R.id.progress);
-        newNoteBtn = (FloatingActionButton) findViewById(R.id.fab_mainActivity_newNoteBtn);
+        FloatingActionButton newNoteBtn = (FloatingActionButton) findViewById(R.id.fab_mainActivity_newNoteBtn);
 
         presenter = new MainPresenterImpl(this);
 
@@ -131,7 +130,8 @@ public class MainActivity extends AppCompatActivity implements MainView, Adapter
 
             @NonNull
             @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            public View getView(int position, @Nullable View paramConvertView, @NonNull ViewGroup parent) {
+                View convertView = paramConvertView;
                 if (convertView == null) {
                     convertView = getLayoutInflater().inflate(R.layout.item_row, null);
                 }

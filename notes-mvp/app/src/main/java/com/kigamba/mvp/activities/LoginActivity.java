@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.kigamba.mvp.R;
-import com.kigamba.mvp.interactors.LoginInteractorImpl;
 import com.kigamba.mvp.views.LoginView;
 import com.kigamba.mvp.presenters.LoginPresenter;
 import com.kigamba.mvp.presenters.LoginPresenterImpl;
