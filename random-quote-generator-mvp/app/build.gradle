@@ -11,13 +11,13 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 22
     buildToolsVersion "26.0.1"
 
     defaultConfig {
         applicationId "com.example.vonbass.quotegenerator_mvp"
         minSdkVersion 17
-        targetSdkVersion 24
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
