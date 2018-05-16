@@ -52,7 +52,7 @@ script:
   # Enable the line below once we get all the test passing, currently most of the tests are failing
   # so we'll just if the project compiles
   #Run All tests Unit and Instrumentation
-  - travis_wait ./gradlew app:build --stacktrace
+  - travis_wait ./gradlew build --stacktrace
   - cd ..
 
 after_failure:
