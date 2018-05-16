@@ -19,7 +19,6 @@ android:
     - tools
     # The BuildTools version used by your project
     - build-tools-24
-    - build-tools-26.0.1
     # The SDK version used to compile your projects
     - android-22
     # Additional components
@@ -35,10 +34,7 @@ android:
 addons:
   apt_packages:
   - pandoc
-
-before_install:
-  - yes | sdkmanager "platforms;android-26"
-
+  
 before_script:
   # Emulator Management: Create, Start and Wait
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
