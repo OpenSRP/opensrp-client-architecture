@@ -79,8 +79,6 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(getOnClickListener(null));
 
-        hideProgressBar();
-
     }
 
     @Override
@@ -107,11 +105,6 @@ public class TaskListActivity extends AppCompatActivity implements TaskListView 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         taskListPresenter.processActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void refreshTasks() {
-        recyclerView.setAdapter(new TaskRecyclerViewAdapter(taskListPresenter));
     }
 
     @Override

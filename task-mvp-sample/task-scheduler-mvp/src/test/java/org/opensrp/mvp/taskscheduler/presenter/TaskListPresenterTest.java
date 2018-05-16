@@ -43,8 +43,8 @@ public class TaskListPresenterTest extends BaseUnitTest {
 
     @Test
     public void testGetAllTasks() {
-        taskListPresenter.getAllTasks();
-        verify(taskInteractor).getAllTasks();
+        taskListPresenter.fetchTasks();
+        verify(taskInteractor).getAllTasks(taskListPresenter);
     }
 
     @Test
@@ -67,13 +67,13 @@ public class TaskListPresenterTest extends BaseUnitTest {
         Intent intent = new Intent();
         intent.putExtra(TASKS_MODIFIED, true);
         taskListPresenter.processActivityResult(TASKS_MODIFIED_RESULT_CODE, RESULT_OK, intent);
-        verify(listView).refreshTasks();
+        verify(listView).showProgressBar();
     }
 
     @Test
     public void testProcessActivityResultDoesNotRefresh() {
         taskListPresenter.processActivityResult(TASKS_MODIFIED_RESULT_CODE, RESULT_OK, new Intent());
-        verify(listView, never()).refreshTasks();
+        verify(listView, never()).showProgressBar();
     }
 
 

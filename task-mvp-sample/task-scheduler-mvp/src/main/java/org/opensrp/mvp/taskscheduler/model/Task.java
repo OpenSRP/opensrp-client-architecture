@@ -82,6 +82,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return String.format("%s starting on %s for %f hours", title, start.toString(), duration);
+        return String.format("%s starting on %s for %s hours", title, start != null ? start.toString() : null, duration);
     }
 }

@@ -7,7 +7,6 @@ package org.opensrp.mvp.taskscheduler.utils;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -28,8 +27,7 @@ public class AppExecutors {
 
     private final Executor mainThread;
 
-    @VisibleForTesting
-    AppExecutors(Executor diskIO, Executor networkIO, Executor mainThread) {
+    public AppExecutors(Executor diskIO, Executor networkIO, Executor mainThread) {
         this.diskIO = diskIO;
         this.networkIO = networkIO;
         this.mainThread = mainThread;

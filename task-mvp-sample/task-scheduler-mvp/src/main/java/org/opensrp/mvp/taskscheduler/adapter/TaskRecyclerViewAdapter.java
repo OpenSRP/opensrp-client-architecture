@@ -12,6 +12,7 @@ import org.opensrp.mvp.taskscheduler.model.Task;
 import org.opensrp.mvp.taskscheduler.presenter.TaskListPresenter;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,11 +22,11 @@ import java.util.List;
 public class TaskRecyclerViewAdapter
         extends RecyclerView.Adapter<TaskRecyclerViewAdapter.ViewHolder> {
 
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();
     private TaskListPresenter taskListPresenter;
 
     public TaskRecyclerViewAdapter(TaskListPresenter taskListPresenter) {
-        tasks = taskListPresenter.getAllTasks();
+        taskListPresenter.fetchTasks();
         this.taskListPresenter = taskListPresenter;
     }
 
