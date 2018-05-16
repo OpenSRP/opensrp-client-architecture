@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:1.2.3"
+        classpath 'org.robolectric:robolectric-gradle-plugin:1.1.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        applicationId "com.example.vonbass.quotegenerator_mvp"
+        minSdkVersion 22
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    compile ('com.android.support:appcompat-v7:24.2.1') {
+        exclude group: 'org.objenesis'
+    }
+
+    compile('com.android.support:design:24.2.1') {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'appcompat-v7:24.2.1'
+    }
+
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    testCompile 'junit:junit:4.12',
+            'org.powermock:powermock-core:1.6.1',
+            'org.powermock:powermock-module-junit4:1.6.1',
+            'org.powermock:powermock-api-mockito:1.6.1'
+
+    testCompile('org.robolectric:robolectric:3.4.2') {
+
+        exclude group: 'com.google.guava', module: 'guava'
+        exclude group: 'org.apache.maven', module: 'maven-model'
+        exclude group: 'org.apache.maven', module: 'maven-ant-tasks'
+        exclude group: 'com.android.support'
+        exclude group: 'com.google.android.apps.common.testing.accessibility.framework', module: 'accessibility-test-framework:2.1'
+    }
+
+    testCompile("org.robolectric:shadows-multidex:3.4-rc2") {
+        exclude group: 'com.google.guava', module: 'guava'
+    }
+
+    androidTestCompile('com.android.support.test:runner:0.5') {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
