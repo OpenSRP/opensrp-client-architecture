@@ -71,7 +71,7 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.getAllTasks(callBack);
         verify(taskDao, timeout(ASYNC_TIMEOUT)).getAll();
 
-        verify(callBack).onTasksFetched(listArgumentCaptor.capture());
+        verify(callBack, timeout(ASYNC_TIMEOUT)).onTasksFetched(listArgumentCaptor.capture());
         List<Task> tasks = listArgumentCaptor.getValue();
 
         assertEquals(1, tasks.size());
@@ -87,7 +87,7 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.saveOrUpdateTask(task, detailsCallBack);
         verify(taskDao, timeout(ASYNC_TIMEOUT)).insert(task);
 
-        verify(detailsCallBack).onTaskSaved(statusArgumentCaptor.capture());
+        verify(detailsCallBack, timeout(ASYNC_TIMEOUT)).onTaskSaved(statusArgumentCaptor.capture());
         assertEquals(type.SAVED, statusArgumentCaptor.getValue());
     }
 
@@ -100,7 +100,7 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.saveOrUpdateTask(task, detailsCallBack);
         verify(taskDao, timeout(ASYNC_TIMEOUT)).update(task);
 
-        verify(detailsCallBack).onTaskSaved(statusArgumentCaptor.capture());
+        verify(detailsCallBack, timeout(ASYNC_TIMEOUT)).onTaskSaved(statusArgumentCaptor.capture());
         assertEquals(type.UPDATED, statusArgumentCaptor.getValue());
 
     }
@@ -117,7 +117,7 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.getTask(taskId, detailsCallBack);
         verify(taskDao, timeout(ASYNC_TIMEOUT)).findById(taskId);
 
-        verify(detailsCallBack,timeout(ASYNC_TIMEOUT)).onTaskFetched(detailsArgumentCaptor.capture());
+        verify(detailsCallBack, timeout(ASYNC_TIMEOUT)).onTaskFetched(detailsArgumentCaptor.capture());
         Task returnedTask = detailsArgumentCaptor.getValue();
         assertEquals(taskId, returnedTask.getId());
         assertEquals("testGetTask", returnedTask.getTitle());
