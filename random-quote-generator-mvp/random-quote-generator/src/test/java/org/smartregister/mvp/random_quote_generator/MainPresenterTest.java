@@ -29,16 +29,16 @@ import static org.powermock.api.mockito.PowerMockito.doNothing;
 public class MainPresenterTest {
 
     @Mock
-    MainActivity mainView;
+    private MainActivity mainView;
 
     @Mock
-    GetQuoteInteractorImpl getQuoteInteractor;
+    private GetQuoteInteractorImpl getQuoteInteractor;
 
     @Mock
-    GetQuoteInteractor.OnFinishedListener onFinishedListener;
+    private GetQuoteInteractor.OnFinishedListener onFinishedListener;
 
     @Mock
-    Context context;
+    private Context context;
 
     private MainPresenterImpl mainPresenter;
 
