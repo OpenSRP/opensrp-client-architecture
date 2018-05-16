@@ -117,7 +117,7 @@ public class TaskInteratorTest extends BaseUnitTest {
         taskInteractor.getTask(taskId, detailsCallBack);
         verify(taskDao, timeout(ASYNC_TIMEOUT)).findById(taskId);
 
-        verify(detailsCallBack).onTaskFetched(detailsArgumentCaptor.capture());
+        verify(detailsCallBack,timeout(ASYNC_TIMEOUT)).onTaskFetched(detailsArgumentCaptor.capture());
         Task returnedTask = detailsArgumentCaptor.getValue();
         assertEquals(taskId, returnedTask.getId());
         assertEquals("testGetTask", returnedTask.getTitle());

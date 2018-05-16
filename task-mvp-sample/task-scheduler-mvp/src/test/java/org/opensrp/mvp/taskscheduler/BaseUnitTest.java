@@ -16,5 +16,5 @@ import org.robolectric.annotation.Config;
 @PowerMockIgnore({"org.mockito.*", "org.robolectric.*", "android.*"})
 public abstract class BaseUnitTest {
 
-    public static int ASYNC_TIMEOUT=200;
+    public static int ASYNC_TIMEOUT=500;
 }
