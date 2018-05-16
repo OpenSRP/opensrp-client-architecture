@@ -36,6 +36,9 @@ addons:
   apt_packages:
   - pandoc
 
+before_install:
+  - yes | sdkmanager "platforms;android-26"
+
 before_script:
   # Emulator Management: Create, Start and Wait
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
