@@ -17,18 +17,22 @@ android:
   components:
     # tools required
     - tools
-
+    - platform-tools
+    - tools
+    
     # The BuildTools version used by your project
     - build-tools-26.0.1
     - build-tools-27.0.3
     - build-tools-26.0.2
-
+    - build-tools-25.0.0
+    - build-tools-25.0.0
+   
     # The SDK version used to compile your projects
     - android-21
     - android-22
     - android-27
     - android-26
-
+    
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
@@ -43,6 +47,13 @@ addons:
   apt_packages:
   - pandoc
 
+before_install:
+  - mkdir "$ANDROID_HOME/licenses" || true
+  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
+  - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
+
 before_script:
   # Emulator Management: Create, Start and Wait
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
@@ -53,6 +64,7 @@ before_script:
 script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+
   - echo "Starting Login MVP Sample ...."
   - cd login-mvp
   - chmod 755 gradlew
@@ -77,5 +89,15 @@ script:
   - travis_wait ./gradlew clean build --stacktrace
   - cd ..
 
+  - echo "Starting Random Quotes MVP Sample ..."
+  - cd random-quote-generator-mvp
+  - chmod 755 gradlew
+  - ls -la
+  # Enable the line below once we get all the test passing, currently most of the tests are failing
+  # so we'll just if the project compiles
+  #Run All tests Unit and Instrumentation
+  - travis_wait ./gradlew build --stacktrace
+  - cd ..
+  
 after_failure:
  - pandoc reports/tests/index.html -t plain
