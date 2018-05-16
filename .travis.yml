@@ -10,18 +10,25 @@ env:
     - ANDROID_TARGET=android-22 ANDROID_ABI=armeabi-v7a
   global:
     # wait up to 10 minutes for adb to connect to emulator
-    - ADB_INSTALL_TIMEOUT=10
+    - ADB_INSTALL_TIMEOUT=20
     - MALLOC_ARENA_MAX=2
 
 android:
   components:
     # tools required
     - tools
+
     # The BuildTools version used by your project
+    - build-tools-26.0.1
+    - build-tools-27.0.3
     - build-tools-26.0.2
+
     # The SDK version used to compile your projects
+    - android-21
     - android-22
+    - android-27
     - android-26
+
     # Additional components
     - extra-google-google_play_services
     - extra-google-m2repository
@@ -43,9 +50,18 @@ before_script:
   - adb wait-for-device
   - adb shell input keyevent 82 &
 
-script: 
+script:
   - echo "Travis branch is $TRAVIS_BRANCH"
   - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+  - echo "Starting Login MVP Sample ...."
+  - cd login-mvp
+  - chmod 755 gradlew
+  - ls -la
+  # This is supposed to run the normal project build
+  - travis_wait ./gradlew clean build --stacktrace
+  - cd ..
+
+  - echo "Starting Task MVP Sample ...."
   - cd task-mvp-sample
   - chmod 755 gradlew
   - ls -la
@@ -53,5 +69,13 @@ script:
   - travis_wait ./gradlew clean test --stacktrace
   - cd ..
 
+  - echo "Starting Notes MVP Sample ...."
+  - cd notes-mvp
+  - chmod 755 gradlew
+  - ls -la
+  # This is supposed to run the normal project build
+  - travis_wait ./gradlew clean build --stacktrace
+  - cd ..
+
 after_failure:
- - pandoc login/build/reports/tests/index.html -t plain
+ - pandoc reports/tests/index.html -t plain
