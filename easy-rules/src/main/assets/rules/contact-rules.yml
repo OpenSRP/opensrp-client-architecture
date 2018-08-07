@@ -1,0 +1,35 @@
+---
+name: set_limit
+description: Set the maximum number of weeks
+priority: 1
+condition: "contact != null"
+actions:
+  - "contact.maxWks = 40"
+---
+name: after_eight
+description: after eight weeks
+priority: 2
+condition: "contact.startWks < 20"
+actions:
+  - "contact.afterWks = 8"
+---
+name: after_six
+description: after six weeks
+priority: 2
+condition: "contact.startWks >= 20"
+actions:
+  - "contact.afterWks = 6"
+---
+name: after_four
+description: after four weeks
+priority: 2
+condition: "contact.startWks >= 26"
+actions:
+  - "contact.afterWks = 4"
+---
+name: after_two
+description: after two weeks
+priority: 2
+condition: "contact.startWks >= 34"
+actions:
+  - "contact.afterWks = 2"
