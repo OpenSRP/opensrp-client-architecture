@@ -1,5 +1,6 @@
 package org.smartregister.easy.rules;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -145,6 +147,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private void validateAndGenerate(String text) {
+        hideSoftKeyboard();
         if (TextUtils.isEmpty(text)) {
             Toast.makeText(MainActivity.this, "Please enter the contact in weeks", Toast.LENGTH_LONG).show();
         } else {
@@ -180,5 +183,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return true;
         }
         return false;
+    }
+
+    public void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                getCurrentFocus().getWindowToken(), 0);
     }
 }

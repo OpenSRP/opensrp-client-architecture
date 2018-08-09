@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/default_margin"
-    android:layout_marginRight="@dimen/default_margin"
+    android:layout_margin="@dimen/default_margin"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/default_margin"
         android:padding="@dimen/default_padding"
         android:text="@string/anc_contact_schedule_title"
         android:textSize="@dimen/title_text_size"
@@ -31,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/default_margin"
             android:hint="@string/enter_contact"
             android:imeOptions="actionDone"
             android:inputType="number"
@@ -39,11 +36,15 @@
             android:textSize="@dimen/default_text_size" />
 
         <TextView
+            android:id="@+id/firstVisit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/spinner"
-            android:padding="@dimen/default_padding"
+            android:layout_toEndOf="@id/contact"
+            android:paddingBottom="@dimen/default_padding"
+            android:paddingEnd="2dp"
+            android:paddingStart="@dimen/default_padding"
+            android:paddingTop="@dimen/default_padding"
             android:text="@string/first_contact"
             android:textSize="@dimen/default_text_size" />
 
@@ -51,9 +52,8 @@
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="@dimen/default_margin"
+            android:layout_toEndOf="@+id/firstVisit"
             android:padding="@dimen/default_padding" />
 
     </RelativeLayout>
@@ -82,10 +82,12 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@+id/generate" />
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
         android:background="@android:color/transparent"
         android:scrollbars="vertical"
         android:visibility="gone"
