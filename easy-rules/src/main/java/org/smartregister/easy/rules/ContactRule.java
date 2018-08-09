@@ -13,8 +13,6 @@ public class ContactRule {
     public int initialVisit;
     public int currentVisit;
 
-    public int maximumVisits;
-
     public Set<Integer> set;
 
     public ContactRule(int wks, boolean isFirst) {

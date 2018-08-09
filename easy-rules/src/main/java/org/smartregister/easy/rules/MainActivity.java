@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new Adapter(new ArrayList<Integer>());
