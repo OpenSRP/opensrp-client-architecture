@@ -40,9 +40,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView resultLabel;
 
     private Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
-
-    boolean isFirst = true;
+    private boolean isFirst = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +75,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Log.d(MainActivity.class.getName(), "Contact Initial visit : " + contactRule.initialVisit + " Weeks");
         Log.d(MainActivity.class.getName(), "Contact Is first visit? : " + (contactRule.isFirst ? "Yes" : "No"));
         Log.d(MainActivity.class.getName(), "Contact currentVisit : " + contactRule.currentVisit);
-        Log.d(MainActivity.class.getName(), "Contact maximumVisits : " + contactRule.maximumVisits);
         Log.d(MainActivity.class.getName(), "Contact list size : " + contactRule.set.size());
 
         Set<Integer> contactList = contactRule.set;
@@ -125,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new Adapter(new ArrayList<Integer>());
