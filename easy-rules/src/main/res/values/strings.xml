@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">easy-rules</string>
+    <string name="anc_contact_schedule_title">Anc Contact Schedule Generator</string>
+    <string name="enter_contact">Enter contact (weeks)</string>
+    <string name="generate">Generate</string>
+    <string name="first_contact">First Contact?</string>
+    <string name="results">Results</string>
 </resources>

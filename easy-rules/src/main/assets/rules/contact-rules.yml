@@ -34,7 +34,7 @@ actions:
 name: contains_40
 description: contains 40 weeks
 priority: 3
-condition: "!contactRule.set.contains(40)"
+condition: "!contactRule.set.contains(40) && contactRule.initialVisit != 41"
 actions:
     - "contactRule.set.add(40)"
 ---
