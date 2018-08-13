@@ -40,14 +40,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String text = "Contact (" + (position + 1) + ") : " + mDataset.get(position) + " Weeks";
         if (position == (mDataset.size() - 1)) {
+            String text = "Due delivery: " + mDataset.get(position) + " Weeks";
+            holder.mTextView.setText(text);
             holder.mTextView.setBackgroundResource(R.color.green);
         } else {
+            String text = "Contact (" + (position + 2) + ") : " + mDataset.get(position) + " Weeks";
+            holder.mTextView.setText(text);
             holder.mTextView.setBackgroundResource(R.color.transparent);
         }
-        holder.mTextView.setText(text);
-
     }
 
     @Override
