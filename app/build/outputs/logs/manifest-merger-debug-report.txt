@@ -1,0 +1,231 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [com.google.android.gms:play-services-vision:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.4.0.aar/6e21806cf4dee67f33ed165d988aa123/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.4.0.aar/47b3842e1091dd3badeba88fb9a7e24a/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:16:1-26:12
+MERGED from [com.android.support:support-v4:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/f89fcb13e006a51abcf901db69057302/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2421e728b0a1904924d72e1e8a57b96c/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3784c6744c683c79f9cadae2d4f7bb5b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4a0f26c7d0e541eca77933aeec087880/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/5c5f39e0fe52cac6d9a4dbb5065c3908/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/5bd3b4bb009b72eb83e0bbb828ec6c84/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/2b59ed22709b16bf330a678d858f96b4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/568f516269ddcde304bf76c89910e9d4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c0cf8a5bbb95b9df48c9b1f57e692e3d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1e44737c5262fc16f9a035351246a269/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e69cee91b3554d1e592de434ca1997e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/4c48448fcdad22339ab15e9330b4e47b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6c22609a545a714429d92a69e23376c9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/6a1f56f74059200744b44af4b71ffd13/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/bb86ce3d10709e38d65e5f5227d83101/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/81860b8bf70ab3790fea97910f022b6d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/f188b0c1e9f424d8a3e2b3ca9aa8a46c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/8ad3fd6e913c73075f985158736fc605/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/fa335c76ee595e697eb68c014597d126/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5e1c5fcd4c5f243b289f16d3f5257616/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/16875ba629b11e4febd240f42efc27d4/AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c275ac24ce718934d9da4dac4a143a89/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/09e9fe917b176630738e820324cc41de/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/688a7aa18252bf12c19d5006d684fdaa/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/02da65770377d2a6fdbe2e47fb6fbdfd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/435ebc2685da35dee989f5059200d143/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/48056909930bd36b07f0fc9524a4eb13/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8e95532f092580f289b2b5333f3922a4/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/d9cdeb5053bcf363f28b9512f65fe061/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0ceee43ba02a7c1ee0e3047aecf2dbbd/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e218479b914a45b5a169a265fb0b05b/AndroidManifest.xml:17:1-22:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+	package
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:3:5-66
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:4:5-35
+uses-feature#android.hardware.camera
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:6:5-60
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:6:19-57
+uses-permission#android.permission.CAMERA
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:8:5-65
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:8:22-62
+application
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:10:5-37:19
+MERGED from [com.google.android.gms:play-services-vision:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.4.0.aar/6e21806cf4dee67f33ed165d988aa123/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.4.0.aar/6e21806cf4dee67f33ed165d988aa123/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.4.0.aar/47b3842e1091dd3badeba88fb9a7e24a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.4.0.aar/47b3842e1091dd3badeba88fb9a7e24a/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:design:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2421e728b0a1904924d72e1e8a57b96c/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2421e728b0a1904924d72e1e8a57b96c/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/16875ba629b11e4febd240f42efc27d4/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/16875ba629b11e4febd240f42efc27d4/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:22:18-91
+	android:supportsRtl
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:16:9-37
+	android:label
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:15:9-40
+	android:hardwareAccelerated
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:13:9-43
+	android:fullBackupContent
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:12:9-42
+	android:icon
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:14:9-38
+	android:allowBackup
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:17:9-47
+meta-data#com.google.android.gms.version
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:18:9-20:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:20:13-66
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:19:13-58
+meta-data#com.google.android.gms.vision.DEPENDENCIES
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:21:9-23:39
+	android:value
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:23:13-36
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:22:13-70
+activity#com.google.android.gms.samples.vision.barcodereader.MainActivity
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:25:9-33:20
+	android:label
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:27:13-56
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:26:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:28:13-32:29
+action#android.intent.action.MAIN
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:31:27-74
+activity#com.google.android.gms.samples.vision.barcodereader.BarcodeCaptureActivity
+ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:35:9-36:43
+	android:label
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:36:13-41
+	android:name
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml:35:19-57
+uses-sdk
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+MERGED from [com.google.android.gms:play-services-vision:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.4.0.aar/6e21806cf4dee67f33ed165d988aa123/AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-vision:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-vision-9.4.0.aar/6e21806cf4dee67f33ed165d988aa123/AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.4.0.aar/47b3842e1091dd3badeba88fb9a7e24a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.4.0.aar/47b3842e1091dd3badeba88fb9a7e24a/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.4.0.aar/53a3d5b7d0c7d7701fe617c764a803d7/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/f89fcb13e006a51abcf901db69057302/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/f89fcb13e006a51abcf901db69057302/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2421e728b0a1904924d72e1e8a57b96c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/2421e728b0a1904924d72e1e8a57b96c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3784c6744c683c79f9cadae2d4f7bb5b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/3784c6744c683c79f9cadae2d4f7bb5b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4a0f26c7d0e541eca77933aeec087880/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/4a0f26c7d0e541eca77933aeec087880/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/5c5f39e0fe52cac6d9a4dbb5065c3908/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-28.0.0.aar/5c5f39e0fe52cac6d9a4dbb5065c3908/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/5bd3b4bb009b72eb83e0bbb828ec6c84/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-28.0.0.aar/5bd3b4bb009b72eb83e0bbb828ec6c84/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/2b59ed22709b16bf330a678d858f96b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/2b59ed22709b16bf330a678d858f96b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/568f516269ddcde304bf76c89910e9d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/568f516269ddcde304bf76c89910e9d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c0cf8a5bbb95b9df48c9b1f57e692e3d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/transition-28.0.0.aar/c0cf8a5bbb95b9df48c9b1f57e692e3d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1e44737c5262fc16f9a035351246a269/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/1e44737c5262fc16f9a035351246a269/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e69cee91b3554d1e592de434ca1997e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/4e69cee91b3554d1e592de434ca1997e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/4c48448fcdad22339ab15e9330b4e47b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/4c48448fcdad22339ab15e9330b4e47b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6c22609a545a714429d92a69e23376c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/6c22609a545a714429d92a69e23376c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/6a1f56f74059200744b44af4b71ffd13/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/6a1f56f74059200744b44af4b71ffd13/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/bb86ce3d10709e38d65e5f5227d83101/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/bb86ce3d10709e38d65e5f5227d83101/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/81860b8bf70ab3790fea97910f022b6d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/81860b8bf70ab3790fea97910f022b6d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/f188b0c1e9f424d8a3e2b3ca9aa8a46c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/f188b0c1e9f424d8a3e2b3ca9aa8a46c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/8ad3fd6e913c73075f985158736fc605/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-28.0.0.aar/8ad3fd6e913c73075f985158736fc605/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/fa335c76ee595e697eb68c014597d126/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/fa335c76ee595e697eb68c014597d126/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/feb52fc385873a9c03bf1a880b5162c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5e1c5fcd4c5f243b289f16d3f5257616/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cardview-v7-28.0.0.aar/5e1c5fcd4c5f243b289f16d3f5257616/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/16875ba629b11e4febd240f42efc27d4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/16875ba629b11e4febd240f42efc27d4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c275ac24ce718934d9da4dac4a143a89/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/c275ac24ce718934d9da4dac4a143a89/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/09e9fe917b176630738e820324cc41de/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/09e9fe917b176630738e820324cc41de/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/688a7aa18252bf12c19d5006d684fdaa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/688a7aa18252bf12c19d5006d684fdaa/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/02da65770377d2a6fdbe2e47fb6fbdfd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/02da65770377d2a6fdbe2e47fb6fbdfd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/435ebc2685da35dee989f5059200d143/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/435ebc2685da35dee989f5059200d143/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/48056909930bd36b07f0fc9524a4eb13/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/48056909930bd36b07f0fc9524a4eb13/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8e95532f092580f289b2b5333f3922a4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/8e95532f092580f289b2b5333f3922a4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/d9cdeb5053bcf363f28b9512f65fe061/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/d9cdeb5053bcf363f28b9512f65fe061/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0ceee43ba02a7c1ee0e3047aecf2dbbd/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/0ceee43ba02a7c1ee0e3047aecf2dbbd/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e218479b914a45b5a169a265fb0b05b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /home/wizard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/2e218479b914a45b5a169a265fb0b05b/AndroidManifest.xml:20:5-44
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		ADDED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+		INJECTED from /media/wizard/wizard/projects/android-vision/visionSamples/barcode-reader/app/src/main/AndroidManifest.xml
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.4.0] /home/wizard/.gradle/caches/transforms-1/files-1.1/play-services-base-9.4.0.aar/d9f12cb435941930b7274ded02a8ca45/AndroidManifest.xml:20:19-85
