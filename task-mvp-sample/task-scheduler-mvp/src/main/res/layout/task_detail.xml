@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:paddingRight="10dp">
+
+    <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/task_title"
+        style="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:hint="Task Title"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+    <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/task_detail"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/task_title"
+        android:hint="Task Details"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/task_duration_label"
+        style="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/task_detail"
+        android:gravity="center"
+        android:text="Duration (hours)"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+    <NumberPicker
+        android:id="@+id/task_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/task_detail"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/task_duration_label"
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+    <CheckBox
+        android:id="@+id/task_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/task_detail"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/task_duration"
+        android:text="Is Complete"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+    <DatePicker
+        android:id="@+id/task_start"
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        android:layout_below="@id/task_duration"
+        android:layout_centerHorizontal="true"
+        android:text="Task starting on"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+
+    <Button
+        android:id="@+id/task_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/task_start"
+        android:layout_centerHorizontal="true"
+        android:text="Save"
+        tools:context="org.test.taskscheduler.view.TaskDetailFragment" />
+
+
+</RelativeLayout>
+
+
